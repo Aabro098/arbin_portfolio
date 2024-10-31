@@ -40,7 +40,7 @@ class PhoneHomeScreen extends StatelessWidget {
                           if(apps[index].link != null){
                             currentState.launchInBrowser(apps[index].link!);
                           }else if(apps[index].screen!=null){
-                            currentState.changePhoneScreen(apps[index].screen!,false);
+                            currentState.changePhoneScreen(apps[index].screen!,false , titleL: apps[index].title);
                           }
                         },
                         child: Center(

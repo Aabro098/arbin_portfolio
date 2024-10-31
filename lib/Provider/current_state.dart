@@ -7,6 +7,7 @@ class CurrentState extends ChangeNotifier{
   DeviceInfo currentDevice = Devices.ios.iPhone13ProMax;
   int knobSelected = 2;
   bool isMainScreen = true;
+  String? title;
 
   Widget currentScreen = const PhoneHomeScreen();
 
@@ -20,9 +21,10 @@ class CurrentState extends ChangeNotifier{
     notifyListeners();
   }
 
-  void changePhoneScreen(Widget change , bool isMain){
+  void changePhoneScreen(Widget change , bool isMain ,{String? titleL}){
     currentScreen = change;
     isMainScreen = isMain;
+    title = titleL;
     notifyListeners();
   }
 
