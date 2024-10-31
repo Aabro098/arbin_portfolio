@@ -1,6 +1,7 @@
 import 'package:arbin_portfolio/Models/app_model.dart';
 import 'package:arbin_portfolio/Models/color_model.dart';
 import 'package:arbin_portfolio/Models/device_model.dart';
+import 'package:arbin_portfolio/Screens/Mini%20Projects/About/about_screen.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 
@@ -69,13 +70,13 @@ List<ColorModel> colorPalette = [
 ];
 
 List<AppModel> apps = [
-  AppModel(title: 'About', color: Colors.white , icon: Icons.ac_unit_outlined),
+  AppModel(title: 'About', color: Colors.white , icon: Icons.ac_unit_outlined , screen: const AboutScreen()),
   AppModel(title: 'Skills', color: Colors.white , icon: Icons.ac_unit_outlined),
   AppModel(title: 'Education', color: Colors.white , icon: Icons.ac_unit_outlined),
-  AppModel(title: 'LinkedIn', color: Colors.white , icon: Icons.ac_unit_outlined),
-  AppModel(title: 'Facebook', color: Colors.white , icon: Icons.ac_unit_outlined),
-  AppModel(title: 'Github', color: Colors.white , icon: Icons.ac_unit_outlined),
-  AppModel(title: 'Resume', color: Colors.white , icon: Icons.ac_unit_outlined),
+  AppModel(title: 'LinkedIn', color: Colors.white , icon: Icons.ac_unit_outlined , link: linkedIn),
+  AppModel(title: 'Facebook', color: Colors.white , icon: Icons.ac_unit_outlined , link : facebook),
+  AppModel(title: 'Github', color: Colors.white , icon: Icons.ac_unit_outlined , link: github),
+  AppModel(title: 'Resume', color: Colors.white , icon: Icons.ac_unit_outlined , link: resumeLink),
 ];
 
 const String email = 'arbinstha71@gmail.com';
