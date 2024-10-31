@@ -83,7 +83,7 @@ const String email = 'arbinstha71@gmail.com';
 const String linkedIn = 'https://www.linkedin.com/in/arbinstha/';
 const String github = 'https://github.com/Aabro098';
 const String facebook = 'https://www.facebook.com/arbin.shrestha.9047/';
-const String introduction = 'A dedicated and proactive Computer Engineering student \n with a few hands-on experience in Flutter development. \nSeeking an internship position to apply my skills in mobile app development, \ncontribute toinnovative projects, and gain professional experience in a dynamic environment';
+const String introduction = 'A dedicated and proactive Computer Engineering student with a few hands-on experience in Flutter development. Seeking an internship position to apply my skills in mobile app development, contribute toinnovative projects, and gain professional experience in a dynamic environment.';
 const String resumeLink = 'https://drive.google.com/file/d/1fC2smPwyM9jbuXpqTlX502zlEospEV64/view?usp=sharing';
 
 

@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 class CurrentState extends ChangeNotifier{
   DeviceInfo currentDevice = Devices.ios.iPhone13ProMax;
   int knobSelected = 2;
+  bool isMainScreen = true;
 
   Widget currentScreen = const PhoneHomeScreen();
 
@@ -19,8 +20,9 @@ class CurrentState extends ChangeNotifier{
     notifyListeners();
   }
 
-  void changePhoneScreen(Widget change){
+  void changePhoneScreen(Widget change , bool isMain){
     currentScreen = change;
+    isMainScreen = isMain;
     notifyListeners();
   }
 

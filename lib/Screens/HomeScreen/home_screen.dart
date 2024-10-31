@@ -1,5 +1,6 @@
 import 'package:arbin_portfolio/Constants/data.dart';
 import 'package:arbin_portfolio/Provider/current_state.dart';
+import 'package:arbin_portfolio/Screens/HomeScreen/phone_home_wrapper.dart';
 import 'package:arbin_portfolio/Widgets/frosted_container.dart';
 import 'package:custom_button_builder/custom_button_builder.dart';
 import 'package:device_frame/device_frame.dart';
@@ -61,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               gradient: colorPalette[currentState.knobSelected].gradient,
                             ),
-                            child: currentState.currentScreen
+                            child: ScreenWrapper(childG:  currentState.currentScreen)
                           )
                         );
                       },
