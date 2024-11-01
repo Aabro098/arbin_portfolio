@@ -83,13 +83,13 @@ List<ColorModel> colorPalette = [
 
 
 List<AppModel> apps = [
-  AppModel(title: 'About', color: Colors.white , icon: Icons.ac_unit_outlined , screen: const AboutScreen()),
+  AppModel(title: 'About', color: Colors.white , icon: Icons.person , screen: const AboutScreen()),
   AppModel(title: 'Skills', color: Colors.white , icon: Icons.ac_unit_outlined),
   AppModel(title: 'Education', color: Colors.white , icon: Icons.ac_unit_outlined),
-  AppModel(title: 'LinkedIn', color: Colors.white , icon: Icons.ac_unit_outlined , link: linkedIn),
-  AppModel(title: 'Facebook', color: Colors.white , icon: Icons.ac_unit_outlined , link : facebook),
-  AppModel(title: 'Github', color: Colors.white , icon: Icons.ac_unit_outlined , link: github),
-  AppModel(title: 'Resume', color: Colors.white , icon: Icons.ac_unit_outlined , link: resumeLink),
+  AppModel(title: 'LinkedIn', color: Colors.white , assetPath: "assets/icons/linkedin.svg" , link: linkedIn),
+  AppModel(title: 'Facebook', color: Colors.white , assetPath: "assets/icons/facebook.svg" , link : facebook),
+  AppModel(title: 'Github', color: Colors.white , assetPath: "assets/icons/github.svg" , link: github),
+  AppModel(title: 'Resume', color: Colors.white , assetPath: "assets/icons/resume.svg" , link: resumeLink),
 ];
 
 const String email = 'arbinstha71@gmail.com';

@@ -35,6 +35,10 @@ class PhoneHomeScreen extends StatelessWidget {
                         height: currentState.currentDevice == Devices.ios.iPad 
                           ? 120 
                           : currentState.currentDevice == Devices.ios.iPhone13ProMax ? 60 : 75,
+                        asset: apps[index].assetPath != null
+                          ? ButtonAsset(apps[index].assetPath!,
+                            width: 25, height: 25)
+                          : null,
                         backgroundColor: apps[index].color,
                         onPressed: (){
                           if(apps[index].link != null){
@@ -43,13 +47,15 @@ class PhoneHomeScreen extends StatelessWidget {
                             currentState.changePhoneScreen(apps[index].screen!,false , titleL: apps[index].title);
                           }
                         },
-                        child: Center(
-                          child: Icon(
-                            apps[index].icon,
-                            size: 36,
-                            color: Colors.black,
-                          ),
-                        ),
+                        child:  apps[index].assetPath == null
+                        ? Center(
+                            child: Icon(
+                              apps[index].icon,
+                              size: 25,
+                              color: Colors.black,
+                            ),
+                          )
+                        : null,
                       ),
                       SizedBox(
                         width: currentState.currentDevice == Devices.ios.iPad ? 120 : 60 ,
