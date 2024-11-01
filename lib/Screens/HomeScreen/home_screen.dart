@@ -79,15 +79,12 @@ class HomeScreen extends StatelessWidget {
                             child: FrostedContainer(
                               height: 395 * theme.heightRatio,
                               width: 247.5 * theme.widthRatio,
-                              childG: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20.0)
-                                ),
-                                child: Transform(
-                                  transform: Matrix4.identity()
-                                  ..setEntry(3, 2, 0.01)
-                                  ..rotateY(-0.07),
-                                  alignment: FractionalOffset.center,
+                              childG: Transform(
+                                transform: Matrix4.identity()
+                                ..setEntry(3, 2, 0.01),
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  padding: const EdgeInsets.all(10),
                                   child: Row(
                                     children: [
                                       Flexible(
@@ -97,13 +94,13 @@ class HomeScreen extends StatelessWidget {
                                             child: AutoSizeText(
                                               'Arbin Shrestha',
                                               style: GoogleFonts.exo(
-                                                fontSize: 35,
+                                                fontSize: 32,
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.bold
                                               ),
-                                              maxFontSize: 35,
+                                              maxFontSize: 32,
                                               minFontSize: 15,
-                                              maxLines: 1,
+                                              maxLines: 2,
                                             ).animate().fadeIn(
                                               delay: .8.seconds,
                                               duration: .7.seconds,
@@ -121,7 +118,9 @@ class HomeScreen extends StatelessWidget {
                             ),
                           )
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(
+                          height: 20,
+                        ),
                         Transform(
                           transform: Matrix4.identity()
                             ..setEntry(3, 2, 0.009999)
@@ -134,48 +133,42 @@ class HomeScreen extends StatelessWidget {
                             height: 175.5 * theme.heightRatio,
                             width: 245 * theme.widthRatio,
                             childG: Center(
-                              child: Transform(
-                                transform: Matrix4.identity()
-                                ..setEntry(3, 2, 0.01)
-                                ..rotateY(-0.07),
-                                alignment: FractionalOffset.center,
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/icons/facebook.svg",
-                                        width: 50 *
-                                          theme.widthRatio *
-                                          theme.heightRatio,
-                                        height: 50 *
-                                          theme.widthRatio *
-                                          theme.heightRatio,
-                                      ),
-                                      SizedBox(
-                                        height: 10 * theme.heightRatio,
-                                      ),
-                                      Flexible(
-                                        child: AutoSizeText(
-                                          "Let's Connect",
-                                          style: GoogleFonts.exo(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 28 *
-                                              theme.widthRatio *
-                                              theme.heightRatio,
-                                          ),
-                                          maxLines: 1,
-                                          maxFontSize: 28,
-                                          minFontSize: 15,
-                                        ).animate().fadeIn(
-                                          delay: .7.seconds,
-                                          duration: .8.seconds
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/icons/facebook.svg",
+                                      width: 70 *
+                                        theme.widthRatio *
+                                        theme.heightRatio,
+                                      height: 70 *
+                                        theme.widthRatio *
+                                        theme.heightRatio,
+                                    ),
+                                    SizedBox(
+                                      height: 10 * theme.heightRatio,
+                                    ),
+                                    Flexible(
+                                      child: AutoSizeText(
+                                        "Let's Connect",
+                                        style: GoogleFonts.exo(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 28 *
+                                            theme.widthRatio *
+                                            theme.heightRatio,
                                         ),
-                                      )
-                                    ],
-                                  ),
+                                        maxLines: 1,
+                                        maxFontSize: 28,
+                                        minFontSize: 15,
+                                      ).animate().fadeIn(
+                                        delay: .7.seconds,
+                                        duration: .8.seconds
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
                             ),
@@ -249,22 +242,63 @@ class HomeScreen extends StatelessWidget {
                             duration: .8.seconds
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(
+                          height: 20,
+                        ),
                         Transform(
                           transform: Matrix4.identity()
                             ..setEntry(3, 2, 0.00999)
                             ..rotateY(0.06),
                           alignment: Alignment.topCenter,
-                          child: const FrostedContainer(
-                            height: 175, 
-                            width: 247 , 
+                          child: FrostedContainer(
+                            height: 175.5 * theme.heightRatio,
+                            width: 245 * theme.widthRatio,
+                            childG: Center(
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AutoSizeText(
+                                      '“Programming isn’t about what you know; it’s about what you can figure out.”',
+                                      style: GoogleFonts.inter(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w300
+                                      ),
+                                      maxFontSize: 24,
+                                      minFontSize: 10,
+                                      maxLines: 4,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: AutoSizeText(
+                                        '-Chris Pine',
+                                        style: GoogleFonts.inter(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500
+                                        ),
+                                        maxFontSize: 16,
+                                        minFontSize: 8,
+                                        maxLines: 1,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ).animate().fadeIn(
+                            delay: .7.seconds,
+                            duration: .8.seconds
                           )
                         ),
                       ],
                     ),
                 ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(
+                height: 15 * theme.heightRatio,
+              ),
               Row(
                 children: [
                   const Spacer(), 

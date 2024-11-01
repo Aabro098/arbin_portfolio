@@ -86,9 +86,9 @@ List<AppModel> apps = [
   AppModel(title: 'About', color: Colors.white , icon: Icons.person , screen: const AboutScreen()),
   AppModel(title: 'Skills', color: Colors.white , icon: Icons.ac_unit_outlined),
   AppModel(title: 'Education', color: Colors.white , icon: Icons.ac_unit_outlined),
-  AppModel(title: 'LinkedIn', color: Colors.white , assetPath: "assets/icons/linkedin.svg" , link: linkedIn),
-  AppModel(title: 'Facebook', color: Colors.white , assetPath: "assets/icons/facebook.svg" , link : facebook),
-  AppModel(title: 'Github', color: Colors.white , assetPath: "assets/icons/github.svg" , link: github),
+  AppModel(title: 'LinkedIn', color: Colors.white , assetPath: "assets/icons/linkedin.png" , link: linkedIn),
+  AppModel(title: 'Facebook', color: Colors.white , assetPath: "assets/icons/facebook.png" , link : facebook),
+  AppModel(title: 'Github', color: Colors.white , assetPath: "assets/icons/github.png" , link: github),
   AppModel(title: 'Resume', color: Colors.white , assetPath: "assets/icons/resume.svg" , link: resumeLink),
 ];
 

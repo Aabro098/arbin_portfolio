@@ -36,8 +36,11 @@ class PhoneHomeScreen extends StatelessWidget {
                           ? 120 
                           : currentState.currentDevice == Devices.ios.iPhone13ProMax ? 60 : 75,
                         asset: apps[index].assetPath != null
-                          ? ButtonAsset(apps[index].assetPath!,
-                            width: 25, height: 25)
+                          ? ButtonAsset(
+                            apps[index].assetPath!,
+                              width: 40, 
+                              height: 40,
+                            )
                           : null,
                         backgroundColor: apps[index].color,
                         onPressed: (){
