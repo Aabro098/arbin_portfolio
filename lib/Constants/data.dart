@@ -5,69 +5,80 @@ import 'package:arbin_portfolio/Screens/Mini%20Projects/About/about_screen.dart'
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 
+
 List<DeviceModel> devices = [
   DeviceModel(device: Devices.android.onePlus8Pro, data: Icons.android),
   DeviceModel(device: Devices.ios.iPhone13ProMax, data: Icons.apple),
   DeviceModel(device: Devices.ios.iPad, data: Icons.tablet),
 ];
 
+
 List<ColorModel> colorPalette = [
   ColorModel(
+  svgPath: "assets/images/cloudyBlue.svg",
+  color: const Color(0xFF39A0ED),  
+  gradient: const LinearGradient(
+    colors: [Color(0xFF001F3F), Color(0xFF39A0ED)],
+    begin: Alignment.bottomLeft,
+    end: Alignment.topRight,
+  ) as Gradient,
+),
+
+  ColorModel(
     svgPath: "assets/images/cloudRed.svg",
+    color: const Color(0xFF9C27B0), 
     gradient: const LinearGradient(
-      colors: [Colors.yellowAccent, Colors.deepOrange],
-      begin: Alignment.bottomLeft,
-      end: Alignment.topRight,
-    ) as Gradient,
-    color: Colors.yellowAccent,
-  ),
-  ColorModel(
-    svgPath: "assets/images/cloudyBlue.svg",
-    color: Colors.blue,
-    gradient: const LinearGradient(
-      begin: Alignment.topLeft,
-      colors: [Colors.blue, Colors.black45],
-    ) as Gradient,
-  ),
-  ColorModel(
-    svgPath: "assets/images/cloudyBlue.svg",
-    color: const Color(0xff00d6ca),
-    gradient: const LinearGradient(
-      colors: [Color(0xff00ebd5), Color(0xff293474)],
-      stops: [0, 1],
-      begin: Alignment.bottomRight,
-      end: Alignment.topLeft,
-    ) as Gradient
-  ),
-  ColorModel(
-    svgPath: "assets/images/cloudyBlue.svg",
-    color: const Color(0xff123cd1),
-    gradient: const LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment(-0.31, 0.95),
-      colors: [Color(0xFF1042F4), Color(0x00203EA6)],
-    ) as Gradient,
-  ),
-  ColorModel(
-    svgPath: "assets/images/cloudyBlue.svg",
-    color: Colors.purple,
-    gradient: const LinearGradient(
-      colors: [Color(0xffc95edb), Colors.black12],
-      stops: [0, 1],
+      colors: [Color(0xFF9C27B0), Color(0xFFFF6F00)],  
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
     ) as Gradient,
   ),
+
+  ColorModel(
+    svgPath: "assets/images/cloudyBlue.svg",
+    color: const Color(0xFF566573),  
+    gradient: const LinearGradient(
+      colors: [Color(0xFF1C2833), Color(0xFF566573)],  
+      begin: Alignment.topRight,
+      end: Alignment.bottomLeft,
+    ) as Gradient,
+  ),
+
   ColorModel(
     svgPath: "assets/images/cloudRed.svg",
-    color: const Color(0xfff35a32),
+    color: const Color(0xFFFFA500),  
     gradient: const LinearGradient(
+      colors: [Color(0xFFFFF700), Colors.deepOrange],  
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+    ) as Gradient,
+  ),
+
+  ColorModel(
+    svgPath: "assets/images/cloudyBlue.svg",
+    color: const Color(0xFF3F51B5),
+    gradient: const LinearGradient(
+      colors:[
+        Color(0xFF0D1B2A), 
+        Color(0xFF1A2A3D), 
+        Color(0xFF3A3E5B),
+      ],
       begin: Alignment.bottomLeft,
       end: Alignment.topRight,
-      colors: [Colors.indigo, Colors.deepOrange], 
+    ) as Gradient,
+  ),
+
+  ColorModel(
+    svgPath: "assets/images/cloudRed.svg",
+    color: const Color(0xFFFFD700),  
+    gradient: const LinearGradient(
+      colors: [Color(0xFFFF00FF), Color(0xFFFFD700)],  
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
     ) as Gradient,
   ),
 ];
+
 
 List<AppModel> apps = [
   AppModel(title: 'About', color: Colors.white , icon: Icons.ac_unit_outlined , screen: const AboutScreen()),

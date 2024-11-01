@@ -25,9 +25,7 @@ class AboutScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: instance.currentDevice == Devices.ios.iPad ? 120 : 80,
-                    backgroundImage: const NetworkImage(
-                      'https://scontent.fktm1-1.fna.fbcdn.net/v/t39.30808-6/437671875_1633829140717838_4498262281753380743_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=8QKlU-MD0pYQ7kNvgF1FYpi&_nc_zt=23&_nc_ht=scontent.fktm1-1.fna&_nc_gid=ALmUIxl0G-2XlglmyezOJyR&oh=00_AYD_OX0RnW381VtwmstCn_57s_TDzSG-WJmAyBA9_mHZUw&oe=67292A32'
-                    ),
+                    backgroundImage: const AssetImage("assets/images/profile.jpg"),
                   ),
                   const SizedBox(
                     height: 10,
