@@ -1,56 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:rive/rive.dart';
 
 class RainCloud extends StatefulWidget {
+  const RainCloud({super.key, required this.top, required this.isopposite});
+  
   final double top;
   final bool isopposite;
-  const RainCloud({
-    super.key, 
-    required this.top, 
-    required this.isopposite
-  });
 
   @override
   State<RainCloud> createState() => _RainCloudState();
 }
 
 class _RainCloudState extends State<RainCloud> {
-  Artboard? rainArtBoard;
   SMIInput<bool>? rain;
   SMIInput<bool>? hover;
+  Artboard? waterArtBoard;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    _loadRiveArtboard();
+    _loadRiveArtboard(); 
   }
 
-   Future<void> _loadRiveArtboard() async {
-    await RiveFile.initialize(); 
-
-    final data = await rootBundle.load("assets/rive/rain.riv");
+  Future<void> _loadRiveArtboard() async {
+    await RiveFile.initialize();
+    
+    final data = await rootBundle.load('assets/rive/rain.riv');
     final file = RiveFile.import(data);
     final artBoard = file.mainArtboard;
 
-    var controller = StateMachineController.fromArtboard(artBoard, "State Machine 1");
+    var controller = StateMachineController.fromArtboard(artBoard, 'State Machine 1');
+
     if (controller != null) {
       artBoard.addController(controller);
-      rain = controller.findInput("isPressed");
-      hover = controller.findInput("isHover");
+      rain = controller.findInput('isPressed');
+      hover = controller.findInput('isHover');
       rain?.value = false;
       hover?.value = false;
     }
-
+    
     setState(() {
-      rainArtBoard = artBoard; 
+      waterArtBoard = artBoard;
     });
   }
 
-  playRain(){
-    if(rain?.value ==false){
+  void playRain() {
+    if (rain?.value == false) {
       rain?.value = true;
-    }else if(rain?.value == true){
+    } else {
       rain?.value = false;
     }
   }
@@ -58,39 +57,40 @@ class _RainCloudState extends State<RainCloud> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return rainArtBoard!= null 
-      ? TweenAnimationBuilder(
-        tween: Tween(
-          begin: widget.isopposite ? size.width-180 : 0,
-          end: widget.isopposite ? 0 : size.width - 180
-        ),
-        duration: const Duration(seconds: 300),
-        builder: (context , value , _) {
-          return Positioned(
-            top: widget.top,
-            child: SizedBox(
-              width: 220,
-              height: 100,
-              child: MouseRegion(
-                onEnter: (_){
-                  hover?.value = true;
-                },
-                onExit: (_){
-                  hover?.value = false;
-                },
-                child: GestureDetector(
-                  onTap: ()=> playRain() ,
-                  child: Rive(
-                    useArtboardSize: true,
-                    fit: BoxFit.cover,
-                    artboard: rainArtBoard!,
-                  ),
-                ),
+    return TweenAnimationBuilder(
+      duration: const Duration(seconds: 300),
+      tween: Tween(
+        begin: widget.isopposite ? size.width - 150 : 0.0,
+        end: widget.isopposite ? 30.0 : size.width - 150,
+      ),
+      builder: (context, value, _) {
+        return Positioned(
+          top: widget.top,
+          right: value,
+          child: MouseRegion(
+            onEnter: (_) {
+              hover?.value = true;
+            },
+            onExit: (_) {
+              hover?.value = false;
+            },
+            child: GestureDetector(
+              onTap: () => playRain(),
+              child: SizedBox(
+                height: 120,
+                width: 220,
+                child: waterArtBoard != null
+                    ? Rive(
+                        useArtboardSize: true,
+                        artboard: waterArtBoard!,
+                        fit: BoxFit.cover,
+                      )
+                    : Container(),
               ),
             ),
-          );
-        }
-      )
-      :Container();
+          ),
+        ).animate().fadeIn(delay: 1.5.seconds, duration: .35.seconds).slide(begin: const Offset(0, .2));
+      },
+    );
   }
 }

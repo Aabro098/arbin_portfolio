@@ -1,5 +1,6 @@
 import 'package:arbin_portfolio/Constants/data.dart';
 import 'package:arbin_portfolio/Provider/current_state.dart';
+import 'package:arbin_portfolio/Provider/theme_provider.dart';
 import 'package:arbin_portfolio/Screens/HomeScreen/phone_home_wrapper.dart';
 import 'package:arbin_portfolio/Widgets/frosted_container.dart';
 import 'package:arbin_portfolio/Widgets/rain_cloud.dart';
@@ -15,7 +16,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CurrentState currentState = Provider.of<CurrentState>(context, listen: false);
+    ThemeProvider theme = Provider.of<ThemeProvider>(context, listen: false);
+    
     Size size = MediaQuery.of(context).size;
+    theme.size = MediaQuery.of(context).size;
+    theme.widthRatio = theme.size.width / baseWidth;
+    theme.heightRatio = theme.size.height / baseHeight;
+
+    bool phone = false;
+    if (size.width < 800) {
+      phone = true;
+    }
     return Scaffold(
       body: Stack(
         children: [
@@ -29,8 +40,6 @@ class HomeScreen extends StatelessWidget {
               );
             }, 
           ),
-          const RainCloud(top: 20, isopposite: false),
-          const RainCloud(top: 250, isopposite: true),
           Selector<CurrentState , int>(
             selector: (context , provider)=>provider.knobSelected,
             builder: (context , __ , _){
@@ -40,7 +49,9 @@ class HomeScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               );
             }, 
-          ),
+          ),  
+          size.height > 600 ? const RainCloud(top: 50, isopposite: false) : Container(),
+          size.height > 600 ? const RainCloud(top: 270, isopposite: true) : Container(),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -48,13 +59,32 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Column(
-                    children: [
-                      FrostedContainer(height: 325, width: 247),
-                      SizedBox(height: 10),
-                      FrostedContainer(height: 175, width: 247),
-                    ],
-                  ),
+                  phone
+                  ? Container() 
+                    : Column(
+                      children: [
+                        Transform(
+                          transform: Matrix4.identity()
+                            ..setEntry(3, 2, 0.01)
+                            ..rotateY(-0.07),
+                          alignment: Alignment.bottomCenter,  
+                          child: const FrostedContainer(
+                            height: 325, width: 247
+                          )
+                        ),
+                        const SizedBox(height: 10),
+                        Transform(
+                          transform: Matrix4.identity()
+                            ..setEntry(3, 2, 0.009999)
+                            ..rotateY(-0.07),
+                            alignment: Alignment.topCenter,
+                          child: const FrostedContainer(
+                            height: 175, 
+                            width: 247
+                          )
+                        ),
+                      ],
+                    ),
                   SizedBox(
                     height: size.height - 120,
                     child: Consumer<CurrentState>(
@@ -71,49 +101,63 @@ class HomeScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  Column(
-                    children: [
-                      FrostedContainer(
-                        height: 325, 
-                        width: 247,
-                        childG: Center(
-                          child: Wrap(
-                            alignment: WrapAlignment.start,
-                            children: [
-                              ...List.generate(
-                                colorPalette.length ,
-                                (index)=>Consumer<CurrentState>(
-                                  builder: (context , __ ,_) {
-                                    return CustomButton(
-                                      margin: const EdgeInsets.all(12.0),
-                                      isThreeD: true,
-                                      animate: true,
-                                      height: 52,
-                                      width: 52,
-                                      borderRadius: 100,
-                                      shadowColor: Colors.white,
-                                      pressed: currentState.knobSelected == index 
-                                        ? Pressed.pressed 
-                                        : Pressed.notPressed,
-                                      backgroundColor: colorPalette[index].color,
-                                      onPressed: (){
-                                        currentState.changeGradient(index);
-                                      },
-                                    );
-                                  }
-                                )
-                              )
-                            ],
+                  phone 
+                  ? Container()
+                    : Column(
+                      children: [
+                        Transform(
+                          transform: Matrix4.identity()
+                            ..setEntry(3, 2, 0.01)
+                            ..rotateY(0.06),
+                          alignment: Alignment.bottomCenter,
+                          child: FrostedContainer(
+                            height: 325, 
+                            width: 247,
+                            childG: Center(
+                              child: Wrap(
+                                alignment: WrapAlignment.start,
+                                children: [
+                                  ...List.generate(
+                                    colorPalette.length ,
+                                    (index)=>Consumer<CurrentState>(
+                                      builder: (context , __ ,_) {
+                                        return CustomButton(
+                                          margin: const EdgeInsets.all(12.0),
+                                          isThreeD: true,
+                                          animate: true,
+                                          height: 52,
+                                          width: 52,
+                                          borderRadius: 100,
+                                          shadowColor: Colors.white,
+                                          pressed: currentState.knobSelected == index 
+                                            ? Pressed.pressed 
+                                            : Pressed.notPressed,
+                                          backgroundColor: colorPalette[index].color,
+                                          onPressed: (){
+                                            currentState.changeGradient(index);
+                                          },
+                                        );
+                                      }
+                                    )
+                                  )
+                                ],
+                              ),
+                            )
                           ),
-                        )
-                      ),
-                      const SizedBox(height: 10),
-                      const FrostedContainer(
-                        height: 175, 
-                        width: 247 , 
-                      ),
-                    ],
-                  ),
+                        ),
+                        const SizedBox(height: 10),
+                        Transform(
+                          transform: Matrix4.identity()
+                            ..setEntry(3, 2, 0.00999)
+                            ..rotateY(0.06),
+                          alignment: Alignment.topCenter,
+                          child: const FrostedContainer(
+                            height: 175, 
+                            width: 247 , 
+                          )
+                        ),
+                      ],
+                    ),
                 ],
               ),
               const SizedBox(height: 20),

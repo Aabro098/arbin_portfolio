@@ -6,11 +6,13 @@ class FrostedContainer extends StatelessWidget {
   final double height;
   final double width;
   final Widget? childG;
+  final void Function()? onPressed;
   const FrostedContainer({
     super.key,
     required this.height,
     required this.width, 
-    this.childG
+    this.childG,
+    this.onPressed,
   });
 
   @override
@@ -20,6 +22,7 @@ class FrostedContainer extends StatelessWidget {
       child: Material(
         type: MaterialType.transparency,
         child: GestureDetector(
+          onTap: onPressed,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Stack(

@@ -5,6 +5,8 @@ import 'package:arbin_portfolio/Screens/Mini%20Projects/About/about_screen.dart'
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 
+const double baseHeight = 790;
+const double baseWidth = 1440;
 
 List<DeviceModel> devices = [
   DeviceModel(device: Devices.android.onePlus8Pro, data: Icons.android),
