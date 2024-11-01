@@ -2,6 +2,7 @@ import 'package:arbin_portfolio/Constants/data.dart';
 import 'package:arbin_portfolio/Provider/current_state.dart';
 import 'package:arbin_portfolio/Screens/HomeScreen/phone_home_wrapper.dart';
 import 'package:arbin_portfolio/Widgets/frosted_container.dart';
+import 'package:arbin_portfolio/Widgets/rain_cloud.dart';
 import 'package:custom_button_builder/custom_button_builder.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,8 @@ class HomeScreen extends StatelessWidget {
               );
             }, 
           ),
+          const RainCloud(top: 20, isopposite: false),
+          const RainCloud(top: 250, isopposite: true),
           Selector<CurrentState , int>(
             selector: (context , provider)=>provider.knobSelected,
             builder: (context , __ , _){
