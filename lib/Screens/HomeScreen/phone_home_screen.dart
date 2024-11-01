@@ -38,8 +38,8 @@ class PhoneHomeScreen extends StatelessWidget {
                         asset: apps[index].assetPath != null
                           ? ButtonAsset(
                             apps[index].assetPath!,
-                              width: 40, 
-                              height: 40,
+                              width: currentState.currentDevice == Devices.ios.iPad ? 80 : 50, 
+                              height: currentState.currentDevice == Devices.ios.iPad ? 80 :50,
                             )
                           : null,
                         backgroundColor: apps[index].color,

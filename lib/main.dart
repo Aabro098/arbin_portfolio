@@ -19,6 +19,8 @@ class Portfolio extends StatelessWidget {
         ChangeNotifierProvider(create: (context)=>CurrentState())
       ],
       child: const MaterialApp(
+        title: 'Arbin Shrestha',
+        debugShowCheckedModeBanner: false,
         home: HomeScreen(),
       ),
     );

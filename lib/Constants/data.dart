@@ -89,12 +89,14 @@ List<AppModel> apps = [
   AppModel(title: 'LinkedIn', color: Colors.white , assetPath: "assets/icons/linkedin.png" , link: linkedIn),
   AppModel(title: 'Facebook', color: Colors.white , assetPath: "assets/icons/facebook.png" , link : facebook),
   AppModel(title: 'Github', color: Colors.white , assetPath: "assets/icons/github.png" , link: github),
-  AppModel(title: 'Resume', color: Colors.white , assetPath: "assets/icons/resume.svg" , link: resumeLink),
+  AppModel(title: 'Insta', color: Colors.white , assetPath: "assets/icons/instagram.png" , link: resumeLink),
+  AppModel(title: 'Resume', color: Colors.white , assetPath: "assets/icons/resume.png" , link: insta),
 ];
 
 const String email = 'arbinstha71@gmail.com';
 const String linkedIn = 'https://www.linkedin.com/in/arbinstha/';
 const String github = 'https://github.com/Aabro098';
+const String insta = 'https://www.instagram.com/arbin_sth/';
 const String facebook = 'https://www.facebook.com/arbin.shrestha.9047/';
 const String introduction = 'A dedicated and proactive Computer Engineering student with a few hands-on experience in Flutter development. Seeking an internship position to apply my skills in mobile app development, contribute toinnovative projects, and gain professional experience in a dynamic environment.';
 const String resumeLink = 'https://drive.google.com/file/d/1fC2smPwyM9jbuXpqTlX502zlEospEV64/view?usp=sharing';
