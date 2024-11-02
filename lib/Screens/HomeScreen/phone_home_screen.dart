@@ -12,19 +12,19 @@ class PhoneHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CurrentState currentState = Provider.of<CurrentState>(context, listen: false);
-    return Consumer<CurrentState>(
-      builder: (context,_,__) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 60.0),
-          child: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            alignment: WrapAlignment.start,
-            children: [
-              ...List.generate(
-                apps.length,
-                (index)=>Container(
-                  margin: const EdgeInsets.only(left: 20 , right : 20 ,top : 10 , bottom:  20),
-                  child: Column(
+    return Padding(
+      padding: const EdgeInsets.only(top: 60.0),
+      child: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        alignment: WrapAlignment.start,
+        children: [
+          ...List.generate(
+            apps.length,
+            (index)=>Container(
+              margin: const EdgeInsets.only(left: 20 , right : 20 ,top : 10 , bottom:  20),
+              child: Consumer<CurrentState>(
+                builder: (context,_,__) {
+                  return Column(
                     children: [
                       CustomButton(
                         margin: const EdgeInsets.only(bottom: 6),
@@ -54,7 +54,7 @@ class PhoneHomeScreen extends StatelessWidget {
                         ? Center(
                             child: Icon(
                               apps[index].icon,
-                              size: 25,
+                              size: 40,
                               color: Colors.black,
                             ),
                           )
@@ -74,13 +74,13 @@ class PhoneHomeScreen extends StatelessWidget {
                         ),
                       )
                     ],
-                  ),
-                )
-              )
-            ],
-          ),
-        );
-      }
+                  );
+                }
+              ),
+            )
+          )
+        ],
+      ),
     );
   }
 }

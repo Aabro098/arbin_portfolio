@@ -2,6 +2,7 @@ import 'package:arbin_portfolio/Models/app_model.dart';
 import 'package:arbin_portfolio/Models/color_model.dart';
 import 'package:arbin_portfolio/Models/device_model.dart';
 import 'package:arbin_portfolio/Screens/Mini%20Projects/About/about_screen.dart';
+import 'package:arbin_portfolio/Screens/Mini%20Projects/Skills/skills.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 
@@ -84,14 +85,30 @@ List<ColorModel> colorPalette = [
 
 List<AppModel> apps = [
   AppModel(title: 'About', color: Colors.white , icon: Icons.person , screen: const AboutScreen()),
-  AppModel(title: 'Skills', color: Colors.white , icon: Icons.ac_unit_outlined),
+  AppModel(title: 'Skills', color: Colors.white , icon: Icons.ac_unit_outlined , screen: const Skills()),
   AppModel(title: 'Education', color: Colors.white , icon: Icons.ac_unit_outlined),
   AppModel(title: 'LinkedIn', color: Colors.white , assetPath: "assets/icons/linkedin.png" , link: linkedIn),
   AppModel(title: 'Facebook', color: Colors.white , assetPath: "assets/icons/facebook.png" , link : facebook),
   AppModel(title: 'Github', color: Colors.white , assetPath: "assets/icons/github.png" , link: github),
-  AppModel(title: 'Insta', color: Colors.white , assetPath: "assets/icons/instagram.png" , link: resumeLink),
-  AppModel(title: 'Resume', color: Colors.white , assetPath: "assets/icons/resume.png" , link: insta),
+  AppModel(title: 'Insta', color: Colors.white , assetPath: "assets/icons/instagram.png" , link: insta),
+  AppModel(title: 'Resume', color: Colors.white , assetPath: "assets/icons/resume.png" , link: resumeLink),
 ];
+
+List<String> skills = [
+  'Flutter',
+  'Dart',
+  'Python',
+  'Node JS',
+  'SQL',
+  'Mongo DB'
+];
+
+List<String> languages = [
+  'Nepali',
+  'English',
+  'Hindi'
+];
+
 
 const String email = 'arbinstha71@gmail.com';
 const String linkedIn = 'https://www.linkedin.com/in/arbinstha/';
