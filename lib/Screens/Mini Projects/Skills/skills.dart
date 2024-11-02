@@ -15,7 +15,7 @@ class Skills extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Container(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -33,16 +33,19 @@ class Skills extends StatelessWidget {
                             margin: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
-                              color: const Color(0xffeff0e0),
+                              border: Border.all(color: skills[index].color)
                             ),
-                            child: Center(
-                              child: Text(
-                                skills[index],
-                                style: GoogleFonts.inter(
-                                  fontSize: currentState.currentDevice == Devices.ios.iPad ? 36 : 24,
-                                  fontWeight: FontWeight.w300
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  skills[index].title,
+                                  style: GoogleFonts.inter(
+                                    fontSize: currentState.currentDevice == Devices.ios.iPad ? 36 : 24,
+                                    fontWeight: FontWeight.w300
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
                           );
                         }
@@ -72,7 +75,7 @@ class Skills extends StatelessWidget {
                   alignment: WrapAlignment.center,
                   children: [
                     ...List.generate(
-                      languages.length, 
+                      language.length, 
                       (index)=>Consumer<CurrentState>(
                         builder: (context,_,__) {
                           return Container(
@@ -82,16 +85,19 @@ class Skills extends StatelessWidget {
                             margin: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
-                              color: const Color(0xffeff0e0),
+                              border: Border.all(color: language[index].color)
                             ),
-                            child: Center(
-                              child: Text(
-                                languages[index],
-                                style: GoogleFonts.inter(
-                                  fontSize: currentState.currentDevice == Devices.ios.iPad ? 36 : 24,
-                                  fontWeight: FontWeight.w300
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  language[index].title,
+                                  style: GoogleFonts.inter(
+                                    fontSize: currentState.currentDevice == Devices.ios.iPad ? 36 : 24,
+                                    fontWeight: FontWeight.w300
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
                           );
                         }

@@ -22,11 +22,11 @@ class PhoneHomeScreen extends StatelessWidget {
             apps.length,
             (index)=>Container(
               margin: const EdgeInsets.only(left: 20 , right : 20 ,top : 10 , bottom:  20),
-              child: Consumer<CurrentState>(
-                builder: (context,_,__) {
-                  return Column(
-                    children: [
-                      CustomButton(
+              child: Column(
+                children: [
+                  Consumer<CurrentState>(
+                    builder: (context,_,__) {
+                      return CustomButton(
                         margin: const EdgeInsets.only(bottom: 6),
                         borderRadius: currentState.currentDevice == Devices.ios.iPhone13ProMax ? 8 : 24,
                         width: currentState.currentDevice == Devices.ios.iPad 
@@ -54,28 +54,28 @@ class PhoneHomeScreen extends StatelessWidget {
                         ? Center(
                             child: Icon(
                               apps[index].icon,
-                              size: 40,
+                              size: currentState.currentDevice == Devices.ios.iPad ? 80 : 32,
                               color: Colors.black,
                             ),
                           )
                         : null,
+                      );
+                    }
+                  ),
+                  SizedBox(
+                    width: currentState.currentDevice == Devices.ios.iPad ? 120 : 60 ,
+                    child: Center(
+                      child: Text(
+                        apps[index].title,
+                        style: GoogleFonts.openSans(
+                          fontSize: currentState.currentDevice == Devices.ios.iPad ? 20 : 11,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        )
                       ),
-                      SizedBox(
-                        width: currentState.currentDevice == Devices.ios.iPad ? 120 : 60 ,
-                        child: Center(
-                          child: Text(
-                            apps[index].title,
-                            style: GoogleFonts.openSans(
-                              fontSize: currentState.currentDevice == Devices.ios.iPad ? 20 : 11,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold
-                            )
-                          ),
-                        ),
-                      )
-                    ],
-                  );
-                }
+                    ),
+                  ),
+                ],
               ),
             )
           )
