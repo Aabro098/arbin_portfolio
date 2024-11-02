@@ -1,10 +1,13 @@
 import 'package:arbin_portfolio/Models/app_model.dart';
 import 'package:arbin_portfolio/Models/color_model.dart';
 import 'package:arbin_portfolio/Models/device_model.dart';
+import 'package:arbin_portfolio/Models/education_model.dart';
 import 'package:arbin_portfolio/Screens/Mini%20Projects/About/about_screen.dart';
 import 'package:arbin_portfolio/Screens/Mini%20Projects/Skills/skills.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
+
+import '../Screens/Mini Projects/Education/education.dart';
 
 const double baseHeight = 790;
 const double baseWidth = 1440;
@@ -86,7 +89,7 @@ List<ColorModel> colorPalette = [
 List<AppModel> apps = [
   AppModel(title: 'About', color: Colors.white , icon: Icons.person , screen: const AboutScreen()),
   AppModel(title: 'Skills', color: Colors.white , icon: Icons.ac_unit_outlined , screen: const Skills()),
-  AppModel(title: 'Education', color: Colors.white , icon: Icons.ac_unit_outlined),
+  AppModel(title: 'Education', color: Colors.white , icon: Icons.ac_unit_outlined, screen : const Education()),
   AppModel(title: 'LinkedIn', color: Colors.white , assetPath: "assets/icons/linkedin.png" , link: linkedIn),
   AppModel(title: 'Facebook', color: Colors.white , assetPath: "assets/icons/facebook.png" , link : facebook),
   AppModel(title: 'Github', color: Colors.white , assetPath: "assets/icons/github.png" , link: github),
@@ -108,6 +111,38 @@ List<String> languages = [
   'English',
   'Hindi'
 ];
+
+
+List<EducationModel> education =[
+  EducationModel(
+    title: 'Chandani Secondary English School', 
+    education: 'SEE', 
+    location: 'Shankhamul,Lalitpur', 
+    date: '2062 - 2075',
+    bulletPoints: [
+      'Starting of the QBASIC programming !!! '
+    ]
+  ),
+  EducationModel(
+    title: "Liverpool Int'l SS/College", 
+    education: '+2 course (Computer Science)', 
+    location: 'New Baneshwor,Kathmandu', 
+    date: '2075 - 2078',
+    bulletPoints: [
+      'Some of the best years of college life !!!',
+    ]
+  ),
+  EducationModel(
+    title: "Khwopa Engineering College", 
+    education: 'Bachelor in Computer Engineering', 
+    location: 'New Baneshwor,Kathmandu', 
+    date: '2075 - Present',
+    bulletPoints: [
+      "Currently in the third year of my college !!!",
+    ]
+  ),
+];
+
 
 
 const String email = 'arbinstha71@gmail.com';

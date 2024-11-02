@@ -1,13 +1,16 @@
 import 'package:arbin_portfolio/Constants/data.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:arbin_portfolio/Provider/current_state.dart';
+import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class Skills extends StatelessWidget {
   const Skills({super.key});
 
   @override
   Widget build(BuildContext context) {
+    CurrentState currentState = Provider.of<CurrentState>(context,listen:false);
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
@@ -21,27 +24,28 @@ class Skills extends StatelessWidget {
                   children: [
                     ...List.generate(
                       skills.length, 
-                      (index)=>Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 5
-                        ),
-                        margin: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: const Color(0xffeff0e0),
-                        ),
-                        child: Center(
-                          child: AutoSizeText(
-                            skills[index],
-                            style: GoogleFonts.inter(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w300
+                      (index)=>Consumer<CurrentState>(
+                        builder: (context,_,__) {
+                          return Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 5
                             ),
-                            maxLines: 2,
-                            maxFontSize: 12,
-                            minFontSize : 18
-                          ),
-                        ),
+                            margin: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: const Color(0xffeff0e0),
+                            ),
+                            child: Center(
+                              child: Text(
+                                skills[index],
+                                style: GoogleFonts.inter(
+                                  fontSize: currentState.currentDevice == Devices.ios.iPad ? 36 : 24,
+                                  fontWeight: FontWeight.w300
+                                ),
+                              ),
+                            ),
+                          );
+                        }
                       ))
                   ],
                 ),
@@ -57,7 +61,9 @@ class Skills extends StatelessWidget {
                 Text(
                   "Languages",
                   style: GoogleFonts.inter(
-                      fontWeight: FontWeight.bold, fontSize: 25),
+                    fontWeight: FontWeight.bold, 
+                    fontSize: 32
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -67,27 +73,28 @@ class Skills extends StatelessWidget {
                   children: [
                     ...List.generate(
                       languages.length, 
-                      (index)=>Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 5
-                        ),
-                        margin: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: const Color(0xffeff0e0),
-                        ),
-                        child: Center(
-                          child: AutoSizeText(
-                            languages[index],
-                            style: GoogleFonts.inter(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w300
+                      (index)=>Consumer<CurrentState>(
+                        builder: (context,_,__) {
+                          return Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 5
                             ),
-                            maxLines: 2,
-                            maxFontSize: 12,
-                            minFontSize : 18
-                          ),
-                        ),
+                            margin: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: const Color(0xffeff0e0),
+                            ),
+                            child: Center(
+                              child: Text(
+                                languages[index],
+                                style: GoogleFonts.inter(
+                                  fontSize: currentState.currentDevice == Devices.ios.iPad ? 36 : 24,
+                                  fontWeight: FontWeight.w300
+                                ),
+                              ),
+                            ),
+                          );
+                        }
                       ))
                   ],
                 ),
