@@ -188,12 +188,6 @@ List<ProjectModel> projects = [
     status: 'Not Released', 
     link: 'https://github.com/Aabro098/flappy_bird'
   ),
-  ProjectModel(
-    title: 'Flappy Bird', 
-    description:'Event Registration Form with fields for Name, Email, Phone Number, Event Date (using a Date Picker), Event Type (using a Dropdown), and Comments. All fields have validation and provide user-friendly error messages.Event List Page that displays upcoming events in a card format, including the event title, date, time, and a short description. Each card has a Register button linking back to the registration form.User Profile Page where users can view and edit their profile details such as name, email, and phone number, along with an option to upload a profile picture.',
-    status: 'Not Released', 
-    link: 'https://github.com/Aabro098/event_registration_and_management_app'
-  ),
 ];
 
 const String email = 'arbinstha71@gmail.com';
