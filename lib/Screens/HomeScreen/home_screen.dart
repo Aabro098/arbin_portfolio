@@ -103,31 +103,26 @@ class HomeScreen extends StatelessWidget {
                                     alignment: Alignment.bottomCenter,
                                     child: Container(
                                       padding: const EdgeInsets.all(10),
-                                      child: Row(
-                                        children: [
-                                          Flexible(
-                                            child: Center(
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(10),
-                                                child: AutoSizeText(
-                                                  'Arbin Shrestha',
-                                                  style: GoogleFonts.inter(
-                                                    fontSize: 32,
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                  maxFontSize: 32,
-                                                  minFontSize: 15,
-                                                  maxLines: 2,
-                                                ).animate().fadeIn(
-                                                      delay: .8.seconds,
-                                                      duration: .7.seconds,
-                                                    ),
+                                      child: Flexible(
+                                        child: Center(
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(10),
+                                            child: AutoSizeText(
+                                              'Arbin Shrestha',
+                                              style: GoogleFonts.inter(
+                                                fontSize: 32,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
                                               ),
-                                            ),
+                                              maxFontSize: 32,
+                                              minFontSize: 15,
+                                              maxLines: 2,
+                                            ).animate().fadeIn(
+                                                  delay: .8.seconds,
+                                                  duration: .7.seconds,
+                                                ),
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ),
                                   ),

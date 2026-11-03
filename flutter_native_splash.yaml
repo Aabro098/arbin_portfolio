@@ -6,8 +6,7 @@ flutter_native_splash:
 
   android: true
   ios: true
-  web: true
-  web_image_mode: center
+  web: false
 
   android_12:
     image: assets/images/fallback.jpg
