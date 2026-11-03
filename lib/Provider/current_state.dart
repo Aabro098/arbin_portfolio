@@ -3,7 +3,7 @@ import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class CurrentState extends ChangeNotifier{
+class CurrentState extends ChangeNotifier {
   DeviceInfo currentDevice = Devices.ios.iPhone13ProMax;
   int knobSelected = 2;
   bool isMainScreen = true;
@@ -11,28 +11,32 @@ class CurrentState extends ChangeNotifier{
 
   Widget currentScreen = const PhoneHomeScreen();
 
-  void changeSelectedDevice (DeviceInfo device){
+  void changeSelectedDevice(DeviceInfo device) {
     currentDevice = device;
     notifyListeners();
   }
 
-  void changeGradient(int index){
+  void changeGradient(int index) {
     knobSelected = index;
     notifyListeners();
   }
 
-  void changePhoneScreen(Widget change , bool isMain ,{String? titleL}){
+  void changePhoneScreen(
+    Widget change, {
+    required bool isMain,
+    String? titleL,
+  }) {
     currentScreen = change;
     isMainScreen = isMain;
     title = titleL;
     notifyListeners();
   }
 
-  Future<void> launchInBrowser(String link) async{
-    Uri url = Uri.parse(link);
-    if(await canLaunchUrl(url)){
-      await launchUrl(url , mode: LaunchMode.externalApplication);
-    }else{
+  Future<void> launchInBrowser(String link) async {
+    final url = Uri.parse(link);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
       throw Exception('something went wrong');
     }
   }

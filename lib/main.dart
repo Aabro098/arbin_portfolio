@@ -15,8 +15,8 @@ class Portfolio extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context)=>ThemeProvider()),
-        ChangeNotifierProvider(create: (context)=>CurrentState())
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => CurrentState()),
       ],
       child: const MaterialApp(
         title: 'Arbin Shrestha Portfolio',
@@ -26,5 +26,3 @@ class Portfolio extends StatelessWidget {
     );
   }
 }
-
-

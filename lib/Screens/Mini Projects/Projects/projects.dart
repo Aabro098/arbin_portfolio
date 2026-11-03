@@ -10,42 +10,48 @@ class Projects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CurrentState currentState = Provider.of<CurrentState>(context,listen: false);
+    final currentState = Provider.of<CurrentState>(context, listen: false);
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
           child: Consumer<CurrentState>(
-            builder: (context,_,__) {
+            builder: (context, _, __) {
               return Wrap(
                 alignment: WrapAlignment.center,
                 children: [
                   ...List.generate(
-                    projects.length, 
-                    (index)=>GestureDetector(
-                      onDoubleTap: (){
-                        if(projects[index].link !=null){
-                          currentState.launchInBrowser(projects[index].link!);
+                    projects.length,
+                    (index) => GestureDetector(
+                      onDoubleTap: () async {
+                        if (projects[index].link != null) {
+                          await currentState
+                              .launchInBrowser(projects[index].link!);
                         }
                       },
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
+                        padding: const EdgeInsets.only(top: 4),
                         child: ListTile(
                           contentPadding: const EdgeInsets.all(16),
                           title: Text(
-                            '[${index+1}] ${projects[index].title}',
+                            '[${index + 1}] ${projects[index].title}',
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.bold,
-                              fontSize: currentState.currentDevice == Devices.ios.iPad ? 32 : 22,
+                              fontSize:
+                                  currentState.currentDevice == Devices.ios.iPad
+                                      ? 32
+                                      : 22,
                             ),
                           ),
                           subtitle: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
                                 'Description',
                                 style: GoogleFonts.inter(
                                   fontWeight: FontWeight.w500,
-                                  fontSize: currentState.currentDevice == Devices.ios.iPad ? 28 : 20,
+                                  fontSize: currentState.currentDevice ==
+                                          Devices.ios.iPad
+                                      ? 28
+                                      : 20,
                                 ),
                               ),
                               const SizedBox(height: 4),
@@ -53,7 +59,10 @@ class Projects extends StatelessWidget {
                                 projects[index].status,
                                 style: GoogleFonts.inter(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: currentState.currentDevice == Devices.ios.iPad ? 26 : 19,
+                                  fontSize: currentState.currentDevice ==
+                                          Devices.ios.iPad
+                                      ? 26
+                                      : 19,
                                 ),
                               ),
                               const SizedBox(height: 4),
@@ -61,18 +70,21 @@ class Projects extends StatelessWidget {
                                 projects[index].description,
                                 style: GoogleFonts.inter(
                                   fontWeight: FontWeight.w300,
-                                  fontSize: currentState.currentDevice == Devices.ios.iPad ? 26 : 19,
+                                  fontSize: currentState.currentDevice ==
+                                          Devices.ios.iPad
+                                      ? 26
+                                      : 19,
                                 ),
                               ),
                             ],
                           ),
                         ),
                       ),
-                    )
-                  )
+                    ),
+                  ),
                 ],
               );
-            }
+            },
           ),
         ),
       ),

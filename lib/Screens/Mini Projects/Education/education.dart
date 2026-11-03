@@ -10,26 +10,29 @@ class Education extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CurrentState currentState = Provider.of<CurrentState>(context,listen: false);
+    final currentState = Provider.of<CurrentState>(context, listen: false);
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
-          child : Consumer<CurrentState>(
-            builder: (context,_,__) {
+          child: Consumer<CurrentState>(
+            builder: (context, _, __) {
               return Wrap(
                 alignment: WrapAlignment.center,
                 children: [
                   ...List.generate(
-                    education.length, 
-                    (index)=>Padding(
-                      padding: const EdgeInsets.only(top : 4.0),
+                    education.length,
+                    (index) => Padding(
+                      padding: const EdgeInsets.only(top: 4),
                       child: ListTile(
                         contentPadding: const EdgeInsets.all(16),
                         title: Text(
                           education[index].title,
                           style: GoogleFonts.inter(
                             fontWeight: FontWeight.bold,
-                            fontSize: currentState.currentDevice == Devices.ios.iPad ? 32 : 22,
+                            fontSize:
+                                currentState.currentDevice == Devices.ios.iPad
+                                    ? 32
+                                    : 22,
                           ),
                         ),
                         subtitle: Column(
@@ -39,7 +42,10 @@ class Education extends StatelessWidget {
                               education[index].education,
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w300,
-                                fontSize: currentState.currentDevice == Devices.ios.iPad ? 26 : 19,
+                                fontSize: currentState.currentDevice ==
+                                        Devices.ios.iPad
+                                    ? 26
+                                    : 19,
                               ),
                             ),
                             const SizedBox(
@@ -49,7 +55,10 @@ class Education extends StatelessWidget {
                               education[index].location,
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w300,
-                                fontSize: currentState.currentDevice == Devices.ios.iPad ? 26 : 19,
+                                fontSize: currentState.currentDevice ==
+                                        Devices.ios.iPad
+                                    ? 26
+                                    : 19,
                               ),
                             ),
                             const SizedBox(
@@ -59,33 +68,39 @@ class Education extends StatelessWidget {
                               education[index].date,
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w300,
-                                fontSize: currentState.currentDevice == Devices.ios.iPad ? 26 : 19,
+                                fontSize: currentState.currentDevice ==
+                                        Devices.ios.iPad
+                                    ? 26
+                                    : 19,
                               ),
                             ),
                             const SizedBox(
                               height: 4,
                             ),
                             ...List.generate(
-                              education[index].bulletPoints.length, 
-                              (value)=>ListTile(
+                              education[index].bulletPoints.length,
+                              (value) => ListTile(
                                 title: Text(
                                   education[index].bulletPoints[value],
                                   style: GoogleFonts.inter(
                                     fontWeight: FontWeight.w400,
-                                    fontSize: currentState.currentDevice == Devices.ios.iPad ? 26 : 19,
+                                    fontSize: currentState.currentDevice ==
+                                            Devices.ios.iPad
+                                        ? 26
+                                        : 19,
                                   ),
                                 ),
-                              )  
-                            )
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                    )  
-                  )
+                    ),
+                  ),
                 ],
               );
-            }
-          )
+            },
+          ),
         ),
       ),
     );

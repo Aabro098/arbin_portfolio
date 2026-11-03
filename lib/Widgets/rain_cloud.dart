@@ -4,8 +4,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:rive/rive.dart';
 
 class RainCloud extends StatefulWidget {
-  const RainCloud({super.key, required this.top, required this.isopposite});
-  
+  const RainCloud({required this.top, required this.isopposite, super.key});
+
   final double top;
   final bool isopposite;
 
@@ -19,19 +19,20 @@ class _RainCloudState extends State<RainCloud> {
   Artboard? waterArtBoard;
 
   @override
-  void initState() {
+  Future<void> initState() async {
     super.initState();
-    _loadRiveArtboard(); 
+    await _loadRiveArtboard();
   }
 
   Future<void> _loadRiveArtboard() async {
     await RiveFile.initialize();
-    
+
     final data = await rootBundle.load('assets/rive/rain.riv');
     final file = RiveFile.import(data);
     final artBoard = file.mainArtboard;
 
-    var controller = StateMachineController.fromArtboard(artBoard, 'State Machine 1');
+    final controller =
+        StateMachineController.fromArtboard(artBoard, 'State Machine 1');
 
     if (controller != null) {
       artBoard.addController(controller);
@@ -40,7 +41,7 @@ class _RainCloudState extends State<RainCloud> {
       rain?.value = false;
       hover?.value = false;
     }
-    
+
     setState(() {
       waterArtBoard = artBoard;
     });
@@ -56,7 +57,7 @@ class _RainCloudState extends State<RainCloud> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return TweenAnimationBuilder(
       duration: const Duration(seconds: 300),
       tween: Tween(
@@ -75,7 +76,7 @@ class _RainCloudState extends State<RainCloud> {
               hover?.value = false;
             },
             child: GestureDetector(
-              onTap: () => playRain(),
+              onTap: playRain,
               child: SizedBox(
                 height: 120,
                 width: 220,
@@ -89,7 +90,10 @@ class _RainCloudState extends State<RainCloud> {
               ),
             ),
           ),
-        ).animate().fadeIn(delay: 1.5.seconds, duration: .35.seconds).slide(begin: const Offset(0, .2));
+        )
+            .animate()
+            .fadeIn(delay: 1.5.seconds, duration: .35.seconds)
+            .slide(begin: const Offset(0, .2));
       },
     );
   }
