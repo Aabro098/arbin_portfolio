@@ -33,6 +33,9 @@ class HomeScreen extends StatelessWidget {
     if (size.width < 800) {
       phone = true;
     }
+    final availableDevices = phone
+        ? devices.where((device) => device.device != Devices.ios.iPad).toList()
+        : devices;
     return Scaffold(
       body: Stack(
         children: [
@@ -322,7 +325,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   const Spacer(),
                   ...List.generate(
-                    devices.length,
+                    availableDevices.length,
                     (index) => [
                       Selector<CurrentState, DeviceInfo>(
                         selector: (context, provider) => provider.currentDevice,
@@ -336,18 +339,18 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: 100,
                             width: 38,
                             pressed: currentState.currentDevice ==
-                                    devices[index].device
+                                    availableDevices[index].device
                                 ? Pressed.pressed
                                 : Pressed.notPressed,
                             child: Center(
                               child: Icon(
-                                devices[index].data,
+                                availableDevices[index].data,
                                 color: Colors.white,
                               ),
                             ),
                             onPressed: () {
                               currentState.changeSelectedDevice(
-                                devices[index].device,
+                                availableDevices[index].device,
                               );
                             },
                           );

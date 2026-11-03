@@ -1,10 +1,17 @@
+import 'dart:async';
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:rive/rive.dart';
 
 class RainCloud extends StatefulWidget {
-  const RainCloud({required this.top, required this.isopposite, super.key});
+  const RainCloud({
+    required this.top,
+    required this.isopposite,
+    super.key,
+  });
 
   final double top;
   final bool isopposite;
@@ -19,15 +26,17 @@ class _RainCloudState extends State<RainCloud> {
   Artboard? waterArtBoard;
 
   @override
-  Future<void> initState() async {
+  void initState() {
     super.initState();
-    await _loadRiveArtboard();
+    unawaited(_loadRiveArtboard());
   }
 
   Future<void> _loadRiveArtboard() async {
     await RiveFile.initialize();
 
     final data = await rootBundle.load('assets/rive/rain.riv');
+    if (!mounted) return;
+
     final file = RiveFile.import(data);
     final artBoard = file.mainArtboard;
 
@@ -42,9 +51,11 @@ class _RainCloudState extends State<RainCloud> {
       hover?.value = false;
     }
 
-    setState(() {
-      waterArtBoard = artBoard;
-    });
+    if (mounted) {
+      setState(() {
+        waterArtBoard = artBoard;
+      });
+    }
   }
 
   void playRain() {
@@ -57,38 +68,47 @@ class _RainCloudState extends State<RainCloud> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final travelDistance = math.max(screenWidth - 220, 0).toDouble();
+
     return TweenAnimationBuilder(
       duration: const Duration(seconds: 300),
       tween: Tween(
-        begin: widget.isopposite ? size.width - 150 : 0.0,
-        end: widget.isopposite ? 30.0 : size.width - 150,
+        begin: widget.isopposite ? travelDistance : 0.0,
+        end: widget.isopposite ? 0.0 : travelDistance,
       ),
       builder: (context, value, _) {
         return Positioned(
           top: widget.top,
           right: value,
-          child: MouseRegion(
-            onEnter: (_) {
-              hover?.value = true;
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final cloudWidth = math.min(constraints.maxWidth, 220).toDouble();
+              final cloudHeight = cloudWidth * 120 / 220;
+
+              return MouseRegion(
+                onEnter: (_) {
+                  hover?.value = true;
+                },
+                onExit: (_) {
+                  hover?.value = false;
+                },
+                child: GestureDetector(
+                  onTap: playRain,
+                  child: SizedBox(
+                    height: cloudHeight,
+                    width: cloudWidth,
+                    child: waterArtBoard != null
+                        ? Rive(
+                            useArtboardSize: true,
+                            artboard: waterArtBoard!,
+                            fit: BoxFit.cover,
+                          )
+                        : Container(),
+                  ),
+                ),
+              );
             },
-            onExit: (_) {
-              hover?.value = false;
-            },
-            child: GestureDetector(
-              onTap: playRain,
-              child: SizedBox(
-                height: 120,
-                width: 220,
-                child: waterArtBoard != null
-                    ? Rive(
-                        useArtboardSize: true,
-                        artboard: waterArtBoard!,
-                        fit: BoxFit.cover,
-                      )
-                    : Container(),
-              ),
-            ),
           ),
         )
             .animate()
