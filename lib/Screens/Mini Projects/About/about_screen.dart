@@ -19,7 +19,7 @@ class AboutScreen extends StatelessWidget {
             return Container(
               decoration:
                   BoxDecoration(color: Colors.grey.withValues(alpha: 0.1)),
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
                   CircleAvatar(
@@ -48,6 +48,7 @@ class AboutScreen extends StatelessWidget {
                       fontSize:
                           instance.currentDevice == Devices.ios.iPad ? 28 : 20,
                       fontWeight: FontWeight.normal,
+                      letterSpacing: 1.1,
                     ),
                   ),
                 ],

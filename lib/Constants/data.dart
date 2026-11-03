@@ -148,6 +148,20 @@ List<SkillsModel> skills = [
   SkillsModel(title: 'Python', color: Colors.yellow),
   SkillsModel(title: 'C/C++', color: Colors.purple.shade700),
   SkillsModel(title: 'SQL', color: Colors.black),
+  SkillsModel(title: 'Provider', color: Colors.cyan),
+  SkillsModel(title: 'Riverpod', color: Colors.blue),
+  SkillsModel(title: 'State Management', color: Colors.green),
+  SkillsModel(title: 'MVVM', color: Colors.yellow),
+  SkillsModel(title: 'App Localization', color: Colors.purple.shade700),
+  SkillsModel(title: 'Deep Linking', color: Colors.black),
+  SkillsModel(title: 'Push Notifications', color: Colors.cyan),
+  SkillsModel(title: 'Google Services', color: Colors.blue),
+  SkillsModel(title: 'RESTful APIs', color: Colors.green),
+  SkillsModel(title: 'Local Database', color: Colors.yellow),
+  SkillsModel(title: 'App Localization', color: Colors.purple.shade700),
+  SkillsModel(title: 'Multi-Theme Support', color: Colors.black),
+  SkillsModel(title: 'Git', color: Colors.cyan),
+  SkillsModel(title: 'Github', color: Colors.blue),
 ];
 
 List<LanguageModel> language = [
@@ -158,11 +172,13 @@ List<LanguageModel> language = [
 
 List<EducationModel> education = [
   EducationModel(
-    title: 'Chandani Secondary English School',
-    education: 'SEE',
-    location: 'Shankhamul,Lalitpur',
-    date: '2062 - 2075',
-    bulletPoints: ['Starting of the QBASIC programming !!! '],
+    title: 'Khwopa Engineering College',
+    education: 'Bachelor in Computer Engineering',
+    location: 'Libali-8 , Bhaktapur',
+    date: '2078 - 2082',
+    bulletPoints: [
+      'Relevant Coursework: Data Structures & Algorithms, Database Management Systems, Operating Systems, Computer Networks, Software Engineering, Artificial Intelligence, Mobile Application Development.',
+    ],
   ),
   EducationModel(
     title: "Liverpool Int'l SS/College",
@@ -170,47 +186,46 @@ List<EducationModel> education = [
     location: 'New Baneshwor,Kathmandu',
     date: '2075 - 2078',
     bulletPoints: [
-      'Some of the best years of college life !!!',
+      'Focused on Science, Mathematics and Computer building a strong foundation for engineering.',
     ],
   ),
   EducationModel(
-    title: 'Khwopa Engineering College',
-    education: 'Bachelor in Computer Engineering',
-    location: 'Libali-8 , Bhaktapur',
-    date: '2075 - Present',
-    bulletPoints: [
-      'Currently in the third year of my college !!!',
-    ],
+    title: 'Chandani Secondary English School',
+    education: 'SEE',
+    location: 'Shankhamul,Lalitpur',
+    date: '2062 - 2075',
+    bulletPoints: ['QBASIC and C programming!!! '],
   ),
 ];
 
 List<ProjectModel> projects = [
   ProjectModel(
-    title: 'Note App',
+    title: 'Material Lynk Delivery Agent and User App',
     description:
-        'Note App (Flutter) This Note App, developed using Flutter , allows users to efficiently manage their notes. Users can add, edit, update, and delete notes with ease. Additionally, the app features a "copy note" functionality, enabling users to quickly duplicate existing notes. The responsive design ensures a smooth user experience across various devices.',
-    status: 'Not Released',
-    link: 'https://github.com/Aabro098/notes_app_flutter',
+        'Developed a production-ready single-vendor logistics ecosystem utilizing Flutter and Riverpod. Delivered intuitive user ordering workflows, live rider navigation via Google Maps, and localized UI support across iOS and Android.',
+    status: 'Released',
+    link: 'https://play.google.com/store/apps/details?id=com.matlynk.user',
   ),
   ProjectModel(
-    title: 'Server Note App',
+    title: 'Finco Customer',
     description:
-        'Note App (Django) This Note App uses the Django backend ,it allows users to efficiently manage their notes. Users can add, edit, update, and delete notes with ease. Additionally, the app features a "copy note" functionality, enabling users to quickly duplicate existing notes.',
-    status: 'Not Released',
-    link: 'https://github.com/Aabro098/CRUD-BackEnd_Django',
+        'Developed a secure document management mobile app using Flutter and Provider for seamless client document uploading, verification, and tracking. ',
+    status: 'Released',
+    link:
+        'https://play.google.com/store/apps/details?id=com.finco.customer.app',
   ),
   ProjectModel(
-    title: 'Facebook Clone (DashBoard)',
+    title: 'न्यायसाथी - Justice Companion',
     description:
-        'Facebook Clone App (Responsive) This Facebook clone app, built using Flutter, provides a seamless and responsive social networking experience across various devices. The app features a modern and intuitive user interface, replicating the core functionalities of Facebook. Users can sign up, create profiles, post updates, like, comment, and share content. Additionally, the app includes real-time notifications, a news feed, friend requests, and messaging capabilities. Designed with responsiveness in mind, the app ensures a smooth user experience on both mobile and web platforms, adapting to different screen sizes and orientations.',
-    status: 'Not Released',
-    link: 'https://github.com/Aabro098/facebook_clone',
+        'Architected a cross-platform accessibility-focused mobile app using Flutter and Provider connecting differently-abled individuals with verified pro-bono lawyers.',
+    status: 'Released',
+    link: 'https://play.google.com/store/apps/details?id=com.nyayasaathi.app',
   ),
   ProjectModel(
-    title: 'Edventure',
+    title: 'Lucky Birth',
     description:
-        'This mobile application, built with Flutter and powered by a Node.js backend, facilitates an interactive learning environment for teachers and students. The app enables students to join classes with teachers according to mutually agreed terms and schedules. It features integrated live chat, allowing real-time communication between students and instructors to enhance engagement and streamline class coordination. The platform is designed to support smooth, responsive user experiences, making it easy to manage and participate in virtual learning sessions on the go.',
-    status: 'Not Released',
+        'Built a cross-platform mobile application in Flutter & Dart designed for offline-first calculation of auspicious birth dates and time slots. Leveraged Provider for reactive state management, SQLite (sqflite) for local database storage.',
+    status: 'Released',
   ),
   ProjectModel(
     title: 'EcoScan',
@@ -219,18 +234,18 @@ List<ProjectModel> projects = [
     status: 'Not Released',
   ),
   ProjectModel(
-    title: 'Portfolio',
+    title: 'MDesk Teachers',
     description:
-        'This portfolio app, built using Flutter, showcases my skills, projects, and professional experience in a visually engaging and interactive format. It includes sections for personal details, project highlights, skills, and contact information, all optimized for smooth, responsive performance across devices. The app demonstrates my expertise in mobile development and UI design, providing potential clients and employers with a dynamic and easily navigable portfolio experience.',
+        'Engineered a multi-institute schedule and classroom management portal using Flutter and Provider for educators.',
     status: 'Released',
-    link: 'https://github.com/Aabro098/arbin_portfolio',
+    link: 'https://play.google.com/store/apps/details?id=com.mdesk.teachers',
   ),
   ProjectModel(
-    title: 'Flappy Bird',
+    title: 'Skill Swap',
     description:
-        'Flappy Bird Game (Flutter & Flame Engine) This Flappy Bird game, created using Flutter and the Flame engine, delivers an engaging and nostalgic gaming experience. Players navigate a bird through a series of obstacles by tapping the screen to keep it flying. The game features smooth animations, responsive controls, and an increasing difficulty level that challenges players as they progress. The use of the Flame engine ensures efficient performance and a seamless gameplay experience on various devices.',
+        'Developed a peer-to-peer skill exchange platform that enables users to teach and learn skills from each other. The platform includes an AI-powered chatbot to assist users, manage interactions, and improve the learning experience.',
     status: 'Not Released',
-    link: 'https://github.com/Aabro098/flappy_bird',
+    link: 'https://github.com/Aabro098/skill_swap',
   ),
 ];
 
@@ -240,6 +255,6 @@ const String github = 'https://github.com/Aabro098';
 const String insta = 'https://www.instagram.com/arbin_sth/';
 const String facebook = 'https://www.facebook.com/arbin.shrestha.9047/';
 const String introduction =
-    'A dedicated and proactive Computer Engineering student with a few hands-on experience in Flutter development. Seeking an internship position to apply my skills in mobile app development, contribute toinnovative projects, and gain professional experience in a dynamic environment.';
+    'Flutter Developer & Computer Engineer specializing in cross-platform mobile architecture, secure API integration, and system modernization. Demonstrated expertise in Riverpod, Provider, OAuth 2.0, Google Maps, and app localization. Skilled in leading mobile initiatives from technical design through Play Store/App Store deployment, ensuring reliable, high-performance user experiences.';
 const String resumeLink =
     'https://drive.google.com/file/d/1fC2smPwyM9jbuXpqTlX502zlEospEV64/view?usp=sharing';

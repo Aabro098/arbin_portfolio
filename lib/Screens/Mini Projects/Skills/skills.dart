@@ -43,8 +43,8 @@ class Skills extends StatelessWidget {
                                   style: GoogleFonts.inter(
                                     fontSize: currentState.currentDevice ==
                                             Devices.ios.iPad
-                                        ? 36
-                                        : 24,
+                                        ? 24
+                                        : 18,
                                     fontWeight: FontWeight.w300,
                                   ),
                                 ),
@@ -69,7 +69,7 @@ class Skills extends StatelessWidget {
                   'Languages',
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.bold,
-                    fontSize: 32,
+                    fontSize: 24,
                   ),
                 ),
                 const SizedBox(
@@ -100,8 +100,8 @@ class Skills extends StatelessWidget {
                                   style: GoogleFonts.inter(
                                     fontSize: currentState.currentDevice ==
                                             Devices.ios.iPad
-                                        ? 36
-                                        : 24,
+                                        ? 24
+                                        : 18,
                                     fontWeight: FontWeight.w300,
                                   ),
                                 ),

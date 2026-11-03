@@ -37,333 +37,343 @@ class HomeScreen extends StatelessWidget {
         ? devices.where((device) => device.device != Devices.ios.iPad).toList()
         : devices;
     return Scaffold(
-      body: Stack(
-        children: [
-          Selector<CurrentState, int>(
-            selector: (context, provider) => provider.knobSelected,
-            builder: (context, __, _) {
-              return Container(
-                decoration: BoxDecoration(
-                  gradient: colorPalette[currentState.knobSelected].gradient,
-                ),
-              );
-            },
-          ),
-          Selector<CurrentState, int>(
-            selector: (context, provider) => provider.knobSelected,
-            builder: (context, __, _) {
-              return SvgPicture.asset(
-                colorPalette[currentState.knobSelected].svgPath,
-                height: size.height,
-                fit: BoxFit.cover,
-              );
-            },
-          ),
-          if (size.height > 600)
-            const RainCloud(top: 50, isopposite: false)
-          else
-            Container(),
-          if (size.height > 600)
-            const RainCloud(top: 270, isopposite: true)
-          else
-            Container(),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Stack(
             children: [
-              const SizedBox(height: 10),
-              Row(
+              Selector<CurrentState, int>(
+                selector: (context, provider) => provider.knobSelected,
+                builder: (context, __, _) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      gradient:
+                          colorPalette[currentState.knobSelected].gradient,
+                    ),
+                  );
+                },
+              ),
+              Selector<CurrentState, int>(
+                selector: (context, provider) => provider.knobSelected,
+                builder: (context, __, _) {
+                  return SvgPicture.asset(
+                    colorPalette[currentState.knobSelected].svgPath,
+                    height: size.height,
+                    fit: BoxFit.cover,
+                  );
+                },
+              ),
+              if (constraints.maxHeight > 600)
+                const RainCloud(top: 50, isopposite: false)
+              else
+                Container(),
+              if (constraints.maxHeight > 600)
+                const RainCloud(top: 270, isopposite: true)
+              else
+                Container(),
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (phone)
-                    Container()
-                  else
-                    Column(
-                      children: [
-                        Transform(
-                          transform: Matrix4.identity()
-                            ..setEntry(3, 2, 0.01)
-                            ..rotateY(-0.07),
-                          alignment: Alignment.bottomCenter,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            margin: EdgeInsets.only(
-                              bottom: 10 * theme.heightRatio,
-                            ),
-                            child: FrostedContainer(
-                              height: 395 * theme.heightRatio,
-                              width: 247.5 * theme.widthRatio,
-                              childG: Transform(
-                                transform: Matrix4.identity()
-                                  ..setEntry(3, 2, 0.01),
-                                alignment: Alignment.bottomCenter,
-                                child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Row(
-                                    children: [
-                                      Flexible(
-                                        child: Center(
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(10),
-                                            child: AutoSizeText(
-                                              'Arbin Shrestha',
-                                              style: GoogleFonts.exo(
-                                                fontSize: 32,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (phone)
+                        Container()
+                      else
+                        Column(
+                          children: [
+                            Transform(
+                              transform: Matrix4.identity()
+                                ..setEntry(3, 2, 0.01)
+                                ..rotateY(-0.07),
+                              alignment: Alignment.bottomCenter,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                margin: EdgeInsets.only(
+                                  bottom: 10 * theme.heightRatio,
+                                ),
+                                child: FrostedContainer(
+                                  height: 395 * theme.heightRatio,
+                                  width: 247.5 * theme.widthRatio,
+                                  childG: Transform(
+                                    transform: Matrix4.identity()
+                                      ..setEntry(3, 2, 0.01),
+                                    alignment: Alignment.bottomCenter,
+                                    child: Container(
+                                      padding: const EdgeInsets.all(10),
+                                      child: Row(
+                                        children: [
+                                          Flexible(
+                                            child: Center(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(10),
+                                                child: AutoSizeText(
+                                                  'Arbin Shrestha',
+                                                  style: GoogleFonts.exo(
+                                                    fontSize: 32,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                  maxFontSize: 32,
+                                                  minFontSize: 15,
+                                                  maxLines: 2,
+                                                ).animate().fadeIn(
+                                                      delay: .8.seconds,
+                                                      duration: .7.seconds,
+                                                    ),
                                               ),
-                                              maxFontSize: 32,
-                                              minFontSize: 15,
-                                              maxLines: 2,
-                                            ).animate().fadeIn(
-                                                  delay: .8.seconds,
-                                                  duration: .7.seconds,
-                                                ),
+                                            ),
                                           ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ).animate().fadeIn(
+                                      duration: .8.seconds,
+                                      delay: .7.seconds,
+                                    ),
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            Transform(
+                              transform: Matrix4.identity()
+                                ..setEntry(3, 2, 0.009999)
+                                ..rotateY(-0.07),
+                              alignment: Alignment.topCenter,
+                              child: FrostedContainer(
+                                onPressed: () async {
+                                  await currentState.launchInBrowser(facebook);
+                                },
+                                height: 175.5 * theme.heightRatio,
+                                width: 245 * theme.widthRatio,
+                                childG: Center(
+                                  child: Container(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/icons/facebook.svg',
+                                          width: 70 *
+                                              theme.widthRatio *
+                                              theme.heightRatio,
+                                          height: 70 *
+                                              theme.widthRatio *
+                                              theme.heightRatio,
+                                        ),
+                                        SizedBox(
+                                          height: 10 * theme.heightRatio,
+                                        ),
+                                        Flexible(
+                                          child: AutoSizeText(
+                                            "Let's Connect",
+                                            style: GoogleFonts.exo(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 28 *
+                                                  theme.widthRatio *
+                                                  theme.heightRatio,
+                                            ),
+                                            maxLines: 1,
+                                            maxFontSize: 28,
+                                            minFontSize: 15,
+                                          ).animate().fadeIn(
+                                                delay: .7.seconds,
+                                                duration: .8.seconds,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ).animate().fadeIn(
+                                    delay: .7.seconds,
+                                    duration: .8.seconds,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      SizedBox(
+                        height: size.height - 120,
+                        child: Consumer<CurrentState>(
+                          builder: (context, _, __) {
+                            return DeviceFrame(
+                              device: currentState.currentDevice,
+                              screen: Container(
+                                decoration: BoxDecoration(
+                                  gradient:
+                                      colorPalette[currentState.knobSelected]
+                                          .gradient,
+                                ),
+                                child: ScreenWrapper(
+                                  childG: currentState.currentScreen,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      if (phone)
+                        Container()
+                      else
+                        Column(
+                          children: [
+                            Transform(
+                              transform: Matrix4.identity()
+                                ..setEntry(3, 2, 0.01)
+                                ..rotateY(0.06),
+                              alignment: Alignment.bottomCenter,
+                              child: FrostedContainer(
+                                height: 395 * theme.heightRatio,
+                                width: 247.5 * theme.widthRatio,
+                                childG: Center(
+                                  child: Wrap(
+                                    children: [
+                                      ...List.generate(
+                                        colorPalette.length,
+                                        (index) => Consumer<CurrentState>(
+                                          builder: (context, __, _) {
+                                            return CustomButton(
+                                              margin: const EdgeInsets.all(12),
+                                              isThreeD: true,
+                                              animate: true,
+                                              height: 50 * theme.widthRatio,
+                                              width: 50 * theme.widthRatio,
+                                              borderRadius: 100,
+                                              shadowColor: Colors.white,
+                                              pressed:
+                                                  currentState.knobSelected ==
+                                                          index
+                                                      ? Pressed.pressed
+                                                      : Pressed.notPressed,
+                                              backgroundColor:
+                                                  colorPalette[index].color,
+                                              onPressed: () {
+                                                currentState.changeGradient(
+                                                  index,
+                                                );
+                                              },
+                                            );
+                                          },
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              ),
-                            ).animate().fadeIn(
-                                  duration: .8.seconds,
-                                  delay: .7.seconds,
-                                ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Transform(
-                          transform: Matrix4.identity()
-                            ..setEntry(3, 2, 0.009999)
-                            ..rotateY(-0.07),
-                          alignment: Alignment.topCenter,
-                          child: FrostedContainer(
-                            onPressed: () async {
-                              await currentState.launchInBrowser(facebook);
-                            },
-                            height: 175.5 * theme.heightRatio,
-                            width: 245 * theme.widthRatio,
-                            childG: Center(
-                              child: Container(
-                                padding: const EdgeInsets.all(10),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SvgPicture.asset(
-                                      'assets/icons/facebook.svg',
-                                      width: 70 *
-                                          theme.widthRatio *
-                                          theme.heightRatio,
-                                      height: 70 *
-                                          theme.widthRatio *
-                                          theme.heightRatio,
-                                    ),
-                                    SizedBox(
-                                      height: 10 * theme.heightRatio,
-                                    ),
-                                    Flexible(
-                                      child: AutoSizeText(
-                                        "Let's Connect",
-                                        style: GoogleFonts.exo(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 28 *
-                                              theme.widthRatio *
-                                              theme.heightRatio,
-                                        ),
-                                        maxLines: 1,
-                                        maxFontSize: 28,
-                                        minFontSize: 15,
-                                      ).animate().fadeIn(
-                                            delay: .7.seconds,
-                                            duration: .8.seconds,
+                              ).animate().fadeIn(
+                                    delay: .7.seconds,
+                                    duration: .8.seconds,
+                                  ),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Transform(
+                              transform: Matrix4.identity()
+                                ..setEntry(3, 2, 0.00999)
+                                ..rotateY(0.06),
+                              alignment: Alignment.topCenter,
+                              child: FrostedContainer(
+                                height: 175.5 * theme.heightRatio,
+                                width: 245 * theme.widthRatio,
+                                childG: Center(
+                                  child: Container(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        AutoSizeText(
+                                          '“Programming isn’t about what you know; it’s about what you can figure out.”',
+                                          style: GoogleFonts.inter(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w300,
                                           ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ).animate().fadeIn(
-                                delay: .7.seconds,
-                                duration: .8.seconds,
-                              ),
-                        ),
-                      ],
-                    ),
-                  SizedBox(
-                    height: size.height - 120,
-                    child: Consumer<CurrentState>(
-                      builder: (context, _, __) {
-                        return DeviceFrame(
-                          device: currentState.currentDevice,
-                          screen: Container(
-                            decoration: BoxDecoration(
-                              gradient: colorPalette[currentState.knobSelected]
-                                  .gradient,
-                            ),
-                            child: ScreenWrapper(
-                              childG: currentState.currentScreen,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  if (phone)
-                    Container()
-                  else
-                    Column(
-                      children: [
-                        Transform(
-                          transform: Matrix4.identity()
-                            ..setEntry(3, 2, 0.01)
-                            ..rotateY(0.06),
-                          alignment: Alignment.bottomCenter,
-                          child: FrostedContainer(
-                            height: 395 * theme.heightRatio,
-                            width: 247.5 * theme.widthRatio,
-                            childG: Center(
-                              child: Wrap(
-                                children: [
-                                  ...List.generate(
-                                    colorPalette.length,
-                                    (index) => Consumer<CurrentState>(
-                                      builder: (context, __, _) {
-                                        return CustomButton(
-                                          margin: const EdgeInsets.all(12),
-                                          isThreeD: true,
-                                          animate: true,
-                                          height: 50 * theme.widthRatio,
-                                          width: 50 * theme.widthRatio,
-                                          borderRadius: 100,
-                                          shadowColor: Colors.white,
-                                          pressed:
-                                              currentState.knobSelected == index
-                                                  ? Pressed.pressed
-                                                  : Pressed.notPressed,
-                                          backgroundColor:
-                                              colorPalette[index].color,
-                                          onPressed: () {
-                                            currentState.changeGradient(
-                                              index,
-                                            );
-                                          },
-                                        );
-                                      },
+                                          maxFontSize: 24,
+                                          minFontSize: 10,
+                                          maxLines: 4,
+                                        ),
+                                        Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: AutoSizeText(
+                                            '-Chris Pine',
+                                            style: GoogleFonts.inter(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            maxFontSize: 16,
+                                            minFontSize: 8,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ],
-                              ),
-                            ),
-                          ).animate().fadeIn(
-                                delay: .7.seconds,
-                                duration: .8.seconds,
-                              ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Transform(
-                          transform: Matrix4.identity()
-                            ..setEntry(3, 2, 0.00999)
-                            ..rotateY(0.06),
-                          alignment: Alignment.topCenter,
-                          child: FrostedContainer(
-                            height: 175.5 * theme.heightRatio,
-                            width: 245 * theme.widthRatio,
-                            childG: Center(
-                              child: Container(
-                                padding: const EdgeInsets.all(10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    AutoSizeText(
-                                      '“Programming isn’t about what you know; it’s about what you can figure out.”',
-                                      style: GoogleFonts.inter(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                      maxFontSize: 24,
-                                      minFontSize: 10,
-                                      maxLines: 4,
-                                    ),
-                                    Align(
-                                      alignment: Alignment.bottomRight,
-                                      child: AutoSizeText(
-                                        '-Chris Pine',
-                                        style: GoogleFonts.inter(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                        maxFontSize: 16,
-                                        minFontSize: 8,
-                                        maxLines: 1,
-                                      ),
-                                    ),
-                                  ],
                                 ),
-                              ),
+                              ).animate().fadeIn(
+                                    delay: .7.seconds,
+                                    duration: .8.seconds,
+                                  ),
                             ),
-                          ).animate().fadeIn(
-                                delay: .7.seconds,
-                                duration: .8.seconds,
-                              ),
+                          ],
                         ),
-                      ],
-                    ),
-                ],
-              ),
-              SizedBox(
-                height: 15 * theme.heightRatio,
-              ),
-              Row(
-                children: [
-                  const Spacer(),
-                  ...List.generate(
-                    availableDevices.length,
-                    (index) => [
-                      Selector<CurrentState, DeviceInfo>(
-                        selector: (context, provider) => provider.currentDevice,
-                        builder: (context, _, __) {
-                          return CustomButton(
-                            isThreeD: true,
-                            shadowColor: Colors.white,
-                            backgroundColor: Colors.black,
-                            animate: true,
-                            height: 38,
-                            borderRadius: 100,
-                            width: 38,
-                            pressed: currentState.currentDevice ==
-                                    availableDevices[index].device
-                                ? Pressed.pressed
-                                : Pressed.notPressed,
-                            child: Center(
-                              child: Icon(
-                                availableDevices[index].data,
-                                color: Colors.white,
-                              ),
-                            ),
-                            onPressed: () {
-                              currentState.changeSelectedDevice(
-                                availableDevices[index].device,
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15 * theme.heightRatio,
+                  ),
+                  Row(
+                    children: [
+                      const Spacer(),
+                      ...List.generate(
+                        availableDevices.length,
+                        (index) => [
+                          Selector<CurrentState, DeviceInfo>(
+                            selector: (context, provider) =>
+                                provider.currentDevice,
+                            builder: (context, _, __) {
+                              return CustomButton(
+                                isThreeD: true,
+                                shadowColor: Colors.white,
+                                backgroundColor: Colors.black,
+                                animate: true,
+                                height: 38,
+                                borderRadius: 100,
+                                width: 38,
+                                pressed: currentState.currentDevice ==
+                                        availableDevices[index].device
+                                    ? Pressed.pressed
+                                    : Pressed.notPressed,
+                                child: Center(
+                                  child: Icon(
+                                    availableDevices[index].data,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  currentState.changeSelectedDevice(
+                                    availableDevices[index].device,
+                                  );
+                                },
                               );
                             },
-                          );
-                        },
-                      ),
-                      const Spacer(),
+                          ),
+                          const Spacer(),
+                        ],
+                      ).expand((widgets) => widgets),
                     ],
-                  ).expand((widgets) => widgets),
+                  ),
                 ],
               ),
             ],
-          ),
-        ],
+          );
+        },
       ),
     );
   }
