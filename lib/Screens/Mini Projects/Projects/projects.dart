@@ -32,40 +32,40 @@ class Projects extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 4),
                         child: ListTile(
                           contentPadding: const EdgeInsets.all(16),
+                          leading: Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF001F3F),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: projects[index].appLogo != null
+                                ? Image.asset(projects[index].appLogo!)
+                                : const Icon(
+                                    Icons.android_outlined,
+                                    color: Colors.white,
+                                    size: 36,
+                                  ),
+                          ),
                           title: Text(
-                            '${projects[index].title} - ${[
-                              projects[index].status,
-                            ]}',
+                            projects[index].title,
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.bold,
                               fontSize:
                                   currentState.currentDevice == Devices.ios.iPad
-                                      ? 32
-                                      : 22,
+                                      ? 26
+                                      : 18,
                             ),
                           ),
                           subtitle: Column(
                             children: [
-                              const SizedBox(height: 8),
-                              Text(
-                                'Description',
-                                style: GoogleFonts.inter(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: currentState.currentDevice ==
-                                          Devices.ios.iPad
-                                      ? 28
-                                      : 20,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
                               Text(
                                 projects[index].description,
                                 style: GoogleFonts.inter(
                                   fontWeight: FontWeight.w300,
                                   fontSize: currentState.currentDevice ==
                                           Devices.ios.iPad
-                                      ? 26
-                                      : 19,
+                                      ? 22
+                                      : 16,
                                 ),
                               ),
                             ],

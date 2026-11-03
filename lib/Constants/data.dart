@@ -5,10 +5,12 @@ import 'package:arbin_portfolio/Models/app_model.dart';
 import 'package:arbin_portfolio/Models/color_model.dart';
 import 'package:arbin_portfolio/Models/device_model.dart';
 import 'package:arbin_portfolio/Models/education_model.dart';
+import 'package:arbin_portfolio/Models/experience_model.dart';
 import 'package:arbin_portfolio/Models/project_model.dart';
 import 'package:arbin_portfolio/Models/skills_model.dart';
 import 'package:arbin_portfolio/Screens/Mini%20Projects/About/about_screen.dart';
 import 'package:arbin_portfolio/Screens/Mini%20Projects/Education/education.dart';
+import 'package:arbin_portfolio/Screens/Mini%20Projects/Experience/experience_screen.dart';
 import 'package:arbin_portfolio/Screens/Mini%20Projects/Projects/projects.dart';
 import 'package:arbin_portfolio/Screens/Mini%20Projects/Skills/skills.dart';
 import 'package:device_frame/device_frame.dart';
@@ -108,9 +110,15 @@ List<AppModel> apps = [
     screen: const Education(),
   ),
   AppModel(
+    title: 'Experience',
+    color: const Color(0xFF001F3F),
+    icon: Iconsax.briefcase,
+    screen: const ExperienceScreen(),
+  ),
+  AppModel(
     title: 'Projects',
-    color: Colors.yellow,
-    icon: Icons.note,
+    color: Colors.orangeAccent,
+    icon: Iconsax.activity,
     screen: const Projects(),
   ),
   AppModel(
@@ -118,6 +126,12 @@ List<AppModel> apps = [
     color: Colors.white,
     assetPath: 'assets/icons/linkedin.png',
     link: linkedIn,
+  ),
+  AppModel(
+    title: 'Gmail',
+    color: Colors.white,
+    assetPath: 'assets/icons/gmail.png',
+    link: gmail,
   ),
   AppModel(
     title: 'Facebook',
@@ -240,6 +254,7 @@ List<ProjectModel> projects = [
         'Developed a production-ready single-vendor logistics ecosystem utilizing Flutter and Riverpod. Delivered intuitive user ordering workflows, live rider navigation via Google Maps, and localized UI support across iOS and Android.',
     status: 'Released',
     link: 'https://play.google.com/store/apps/details?id=com.matlynk.user',
+    appLogo: 'assets/logos/app_logo_matlynk.png',
   ),
   ProjectModel(
     title: 'Finco Customer',
@@ -248,6 +263,7 @@ List<ProjectModel> projects = [
     status: 'Released',
     link:
         'https://play.google.com/store/apps/details?id=com.finco.customer.app',
+    appLogo: 'assets/logos/app_logo_finco.png',
   ),
   ProjectModel(
     title: 'न्यायसाथी - Justice Companion',
@@ -255,6 +271,7 @@ List<ProjectModel> projects = [
         'Architected a cross-platform accessibility-focused mobile app using Flutter and Provider connecting differently-abled individuals with verified pro-bono lawyers.',
     status: 'Released',
     link: 'https://play.google.com/store/apps/details?id=com.nyayasaathi.app',
+    appLogo: 'assets/logos/app_logo_nyayasaathi.jpg',
   ),
   ProjectModel(
     title: 'Lucky Birth',
@@ -262,6 +279,7 @@ List<ProjectModel> projects = [
         'Built a cross-platform mobile application in Flutter & Dart designed for offline-first calculation of auspicious birth dates and time slots. Leveraged Provider for reactive state management, SQLite (sqflite) for local database storage.',
     status: 'Released',
     link: 'https://play.google.com/store/apps/details?id=com.luckybirth.app',
+    appLogo: 'assets/logos/app_logo_lucky.png',
   ),
   ProjectModel(
     title: 'EcoScan',
@@ -275,6 +293,7 @@ List<ProjectModel> projects = [
         'Engineered a multi-institute schedule and classroom management portal using Flutter and Provider for educators.',
     status: 'Released',
     link: 'https://play.google.com/store/apps/details?id=com.mdesk.teachers',
+    appLogo: 'assets/logos/app_logo_mdesk.png',
   ),
   ProjectModel(
     title: 'Skill Swap',
@@ -285,11 +304,56 @@ List<ProjectModel> projects = [
   ),
 ];
 
+List<ExperienceModel> experience = [
+  ExperienceModel(
+    title: 'Mobile Application Development',
+    description:
+        'Designed, developed, and maintained cross-platform mobile applications for iOS and Android utilizing Flutter and Dart.',
+  ),
+  ExperienceModel(
+    title: 'Architecture & State Management',
+    description:
+        'Implemented scalable and maintainable app architectures using Riverpod and Provider for reactive state management, adhering to Clean Architecture and MVVM patterns.',
+  ),
+  ExperienceModel(
+    title: 'API Integration & Security',
+    description:
+        'Integrated secure RESTful APIs, handled JSON parsing, and configured OAuth 2.0 / Social Authentication alongside local database caching using SQLite/Hive.',
+  ),
+  ExperienceModel(
+    title: 'Core Feature Implementation',
+    description:
+        'Built complex mobile features including real-time Google Maps and location services, app localization for multi-language support, push notifications, and deep linking.',
+  ),
+  ExperienceModel(
+    title: 'Deployment & Release Management',
+    description:
+        'Managed the end-to-end deployment lifecycle of production applications, publishing and maintaining updates on both the Google Play Store and Apple App Store.',
+  ),
+  ExperienceModel(
+    title: 'Code Quality & Testing',
+    description:
+        'Conducted code reviews, static analysis, and wrote widget, unit, and integration tests to ensure high performance and application stability.',
+  ),
+  ExperienceModel(
+    title: 'UI/UX Implementation',
+    description:
+        'Translated UI/UX designs into responsive and adaptive layouts using LayoutBuilder, MediaQuery, and custom Material 3 themes supporting both light and dark modes.',
+  ),
+  ExperienceModel(
+    title: 'Collaboration',
+    description:
+        'Collaborated with cross-functional teams, back-end developers, and stakeholders to deliver feature updates based on client feedback and requirements.',
+  ),
+];
+
 const String email = 'arbinstha71@gmail.com';
 const String linkedIn = 'https://www.linkedin.com/in/arbinstha/';
 const String github = 'https://github.com/Aabro098';
 const String insta = 'https://www.instagram.com/arbin_sth/';
 const String facebook = 'https://www.facebook.com/arbin.shrestha.9047/';
+const String gmail =
+    'https://mail.google.com/mail/?view=cm&fs=1&to=arbinstha71@gmail.com&su=Support%20Request&body=Hello%2C%20I%20need%20assistance.';
 const String introduction =
     'Flutter Developer & Computer Engineer specializing in cross-platform mobile architecture, secure API integration, and system modernization. Demonstrated expertise in Riverpod, Provider, OAuth 2.0, Google Maps, and app localization. Skilled in leading mobile initiatives from technical design through Play Store/App Store deployment, ensuring reliable, high-performance user experiences.';
 const String resumeLink =
