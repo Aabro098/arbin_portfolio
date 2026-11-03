@@ -13,14 +13,18 @@ import 'package:arbin_portfolio/Screens/Mini%20Projects/Projects/projects.dart';
 import 'package:arbin_portfolio/Screens/Mini%20Projects/Skills/skills.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 const double baseHeight = 790;
 const double baseWidth = 1440;
 
 List<DeviceModel> devices = [
-  DeviceModel(device: Devices.android.onePlus8Pro, data: Icons.android),
-  DeviceModel(device: Devices.ios.iPhone13ProMax, data: Icons.apple),
-  DeviceModel(device: Devices.ios.iPad, data: Icons.tablet),
+  DeviceModel(
+    device: Devices.android.onePlus8Pro,
+    data: Icons.android_outlined,
+  ),
+  DeviceModel(device: Devices.ios.iPhone13ProMax, data: Icons.apple_outlined),
+  DeviceModel(device: Devices.ios.iPad, data: Icons.tablet_outlined),
 ];
 
 List<ColorModel> colorPalette = [
@@ -88,19 +92,19 @@ List<AppModel> apps = [
   AppModel(
     title: 'About',
     color: Colors.orange,
-    icon: Icons.person,
+    icon: Iconsax.user,
     screen: const AboutScreen(),
   ),
   AppModel(
     title: 'Skills',
     color: Colors.green,
-    icon: Icons.code,
+    icon: Iconsax.code,
     screen: const Skills(),
   ),
   AppModel(
     title: 'Education',
     color: Colors.blue,
-    icon: Icons.school,
+    icon: Iconsax.building,
     screen: const Education(),
   ),
   AppModel(
@@ -289,4 +293,4 @@ const String facebook = 'https://www.facebook.com/arbin.shrestha.9047/';
 const String introduction =
     'Flutter Developer & Computer Engineer specializing in cross-platform mobile architecture, secure API integration, and system modernization. Demonstrated expertise in Riverpod, Provider, OAuth 2.0, Google Maps, and app localization. Skilled in leading mobile initiatives from technical design through Play Store/App Store deployment, ensuring reliable, high-performance user experiences.';
 const String resumeLink =
-    'https://drive.google.com/file/d/1fC2smPwyM9jbuXpqTlX502zlEospEV64/view?usp=sharing';
+    'https://drive.google.com/file/d/1AXdoeuqJ7pMQ_aJnO6qSnnDt-ATejLJk/view?usp=drivesdk';

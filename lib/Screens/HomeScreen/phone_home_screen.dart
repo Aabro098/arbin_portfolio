@@ -86,7 +86,7 @@ class PhoneHomeScreen extends StatelessWidget {
                                               Devices.ios.iPad
                                           ? 80
                                           : 32,
-                                      color: Colors.black,
+                                      color: Colors.white,
                                     ),
                                   )
                                 : null,
