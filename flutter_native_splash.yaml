@@ -1,0 +1,15 @@
+flutter_native_splash:
+  color: "#FFD700"
+  image: assets/images/fallback.jpg
+  color_dark: "#FFD700"
+  image_dark: assets/images/fallback.jpg
+
+  android: true
+  ios: true
+  web: false
+
+  android_12:
+    image: assets/images/fallback.jpg
+    icon_background_color: "#FFD700"
+    image_dark: assets/images/fallback.jpg
+    icon_background_color_dark: "#FFD700"

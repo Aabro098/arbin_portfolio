@@ -10,30 +10,30 @@ class Skills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CurrentState currentState = Provider.of<CurrentState>(context,listen:false);
+    final currentState = Provider.of<CurrentState>(context, listen: false);
     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
           child: Container(
             padding: const EdgeInsets.all(16),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Wrap(
                   alignment: WrapAlignment.center,
                   children: [
                     ...List.generate(
-                      skills.length, 
-                      (index)=>Consumer<CurrentState>(
-                        builder: (context,_,__) {
+                      skills.length,
+                      (index) => Consumer<CurrentState>(
+                        builder: (context, _, __) {
                           return Container(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 5
+                              horizontal: 8,
+                              vertical: 5,
                             ),
                             margin: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
-                              border: Border.all(color: skills[index].color)
+                              border: Border.all(color: skills[index].color),
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -41,15 +41,19 @@ class Skills extends StatelessWidget {
                                 Text(
                                   skills[index].title,
                                   style: GoogleFonts.inter(
-                                    fontSize: currentState.currentDevice == Devices.ios.iPad ? 36 : 24,
-                                    fontWeight: FontWeight.w300
+                                    fontSize: currentState.currentDevice ==
+                                            Devices.ios.iPad
+                                        ? 24
+                                        : 18,
+                                    fontWeight: FontWeight.w300,
                                   ),
                                 ),
                               ],
                             ),
                           );
-                        }
-                      ))
+                        },
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -62,10 +66,10 @@ class Skills extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  "Languages",
+                  'Languages',
                   style: GoogleFonts.inter(
-                    fontWeight: FontWeight.bold, 
-                    fontSize: 32
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
                   ),
                 ),
                 const SizedBox(
@@ -75,17 +79,18 @@ class Skills extends StatelessWidget {
                   alignment: WrapAlignment.center,
                   children: [
                     ...List.generate(
-                      language.length, 
-                      (index)=>Consumer<CurrentState>(
-                        builder: (context,_,__) {
+                      language.length,
+                      (index) => Consumer<CurrentState>(
+                        builder: (context, _, __) {
                           return Container(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 5
+                              horizontal: 8,
+                              vertical: 5,
                             ),
                             margin: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
-                              border: Border.all(color: language[index].color)
+                              border: Border.all(color: language[index].color),
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -93,22 +98,26 @@ class Skills extends StatelessWidget {
                                 Text(
                                   language[index].title,
                                   style: GoogleFonts.inter(
-                                    fontSize: currentState.currentDevice == Devices.ios.iPad ? 36 : 24,
-                                    fontWeight: FontWeight.w300
+                                    fontSize: currentState.currentDevice ==
+                                            Devices.ios.iPad
+                                        ? 24
+                                        : 18,
+                                    fontWeight: FontWeight.w300,
                                   ),
                                 ),
                               ],
                             ),
                           );
-                        }
-                      ))
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ],
             ),
           ),
         ),
-      )
+      ),
     );
   }
 }

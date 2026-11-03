@@ -1,0 +1,117 @@
+import 'package:arbin_portfolio/Constants/data.dart';
+import 'package:arbin_portfolio/Provider/current_state.dart';
+import 'package:device_frame/device_frame.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+class ExperienceScreen extends StatelessWidget {
+  const ExperienceScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final currentState = Provider.of<CurrentState>(context, listen: false);
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Consumer<CurrentState>(
+            builder: (context, _, __) {
+              return Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Text(
+                    'Margintop Solutions Pvt. Ltd.',
+                    style: GoogleFonts.inter(
+                      fontWeight: FontWeight.bold,
+                      fontSize: currentState.currentDevice == Devices.ios.iPad
+                          ? 32
+                          : 22,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      // text longer than 80 chars
+                      // ignore: lines_longer_than_80_chars
+                      'MarginTop Solutions Machhindra Marg, Pulchowk, Lalitpur 44600, Nepal',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.inter(
+                        fontWeight: FontWeight.w300,
+                        fontSize: currentState.currentDevice == Devices.ios.iPad
+                            ? 26
+                            : 19,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'February 2025 - November 2026',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.inter(
+                        fontWeight: FontWeight.w300,
+                        fontSize: currentState.currentDevice == Devices.ios.iPad
+                            ? 26
+                            : 19,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    'Responsibilities and Accomplishments:',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.inter(
+                      fontWeight: FontWeight.bold,
+                      fontSize: currentState.currentDevice == Devices.ios.iPad
+                          ? 32
+                          : 22,
+                    ),
+                  ),
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    children: [
+                      ...List.generate(
+                        experience.length,
+                        (index) => Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: ListTile(
+                            contentPadding: const EdgeInsets.all(16),
+                            title: Text(
+                              experience[index].title,
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.bold,
+                                fontSize: currentState.currentDevice ==
+                                        Devices.ios.iPad
+                                    ? 26
+                                    : 18,
+                              ),
+                            ),
+                            subtitle: Column(
+                              children: [
+                                Text(
+                                  experience[index].description,
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: currentState.currentDevice ==
+                                            Devices.ios.iPad
+                                        ? 22
+                                        : 16,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -3,22 +3,22 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class FrostedContainer extends StatelessWidget {
+  const FrostedContainer({
+    required this.height,
+    required this.width,
+    super.key,
+    this.childG,
+    this.onPressed,
+  });
   final double height;
   final double width;
   final Widget? childG;
   final void Function()? onPressed;
-  const FrostedContainer({
-    super.key,
-    required this.height,
-    required this.width, 
-    this.childG,
-    this.onPressed,
-  });
 
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       child: Material(
         type: MaterialType.transparency,
         child: GestureDetector(
@@ -28,7 +28,7 @@ class FrostedContainer extends StatelessWidget {
             child: Stack(
               children: [
                 BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX:7 , sigmaY: 7 ),
+                  filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
                   child: SizedBox(
                     height: height,
                     width: width,
@@ -39,20 +39,18 @@ class FrostedContainer extends StatelessWidget {
                   width: width,
                   decoration: BoxDecoration(
                     boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.25)
-                      )
+                      BoxShadow(color: Colors.black.withValues(alpha: 0.25)),
                     ],
                     gradient: LinearGradient(
                       colors: [
-                        Colors.white.withOpacity(0.5),
-                        Colors.white.withOpacity(0.3)
+                        Colors.white.withValues(alpha: 0.5),
+                        Colors.white.withValues(alpha: 0.3),
                       ],
                     ),
-                    borderRadius: BorderRadius.circular(20.0),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: childG,
-                )
+                ),
               ],
             ),
           ),
