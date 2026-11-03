@@ -10,7 +10,7 @@ class FrostedContainer extends StatelessWidget {
   const FrostedContainer({
     super.key,
     required this.height,
-    required this.width, 
+    required this.width,
     this.childG,
     this.onPressed,
   });
@@ -28,7 +28,7 @@ class FrostedContainer extends StatelessWidget {
             child: Stack(
               children: [
                 BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX:7 , sigmaY: 7 ),
+                  filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
                   child: SizedBox(
                     height: height,
                     width: width,
@@ -39,14 +39,12 @@ class FrostedContainer extends StatelessWidget {
                   width: width,
                   decoration: BoxDecoration(
                     boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.25)
-                      )
+                      BoxShadow(color: Colors.black.withValues(alpha: 0.25))
                     ],
                     gradient: LinearGradient(
                       colors: [
-                        Colors.white.withOpacity(0.5),
-                        Colors.white.withOpacity(0.3)
+                        Colors.white.withValues(alpha: 0.5),
+                        Colors.white.withValues(alpha: 0.3)
                       ],
                     ),
                     borderRadius: BorderRadius.circular(20.0),
