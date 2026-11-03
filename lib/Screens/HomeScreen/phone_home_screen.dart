@@ -20,6 +20,15 @@ class PhoneHomeScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 60),
               child: Column(
                 children: [
+                  Text(
+                    'Arbin Shrestha',
+                    style: GoogleFonts.inter(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
                   Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
