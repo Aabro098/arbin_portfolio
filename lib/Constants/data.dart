@@ -139,6 +139,37 @@ List<AppModel> apps = [
     assetPath: 'assets/icons/resume.png',
     link: resumeLink,
   ),
+  AppModel(
+    title: 'NyayaSaathi',
+    color: Colors.white,
+    assetPath: 'assets/logos/app_logo_nyayasaathi.jpg',
+    link: 'https://play.google.com/store/apps/details?id=com.nyayasaathi.app',
+  ),
+  AppModel(
+    title: 'Finco Customer',
+    color: Colors.white,
+    assetPath: 'assets/logos/app_logo_finco.png',
+    link:
+        'https://play.google.com/store/apps/details?id=com.finco.customer.app',
+  ),
+  AppModel(
+    title: 'Matlynk User',
+    color: Colors.black,
+    assetPath: 'assets/logos/app_logo_matlynk.png',
+    link: 'https://play.google.com/store/apps/details?id=com.matlynk.user',
+  ),
+  AppModel(
+    title: 'MDesk Teachers',
+    color: Colors.white,
+    assetPath: 'assets/logos/app_logo_mdesk.png',
+    link: 'https://play.google.com/store/apps/details?id=com.mdesk.teachers',
+  ),
+  AppModel(
+    title: 'Lucky Birth',
+    color: Colors.deepOrange,
+    assetPath: 'assets/logos/app_logo_lucky.png',
+    link: 'https://play.google.com/store/apps/details?id=com.luckybirth.app',
+  ),
 ];
 
 List<SkillsModel> skills = [
@@ -226,6 +257,7 @@ List<ProjectModel> projects = [
     description:
         'Built a cross-platform mobile application in Flutter & Dart designed for offline-first calculation of auspicious birth dates and time slots. Leveraged Provider for reactive state management, SQLite (sqflite) for local database storage.',
     status: 'Released',
+    link: 'https://play.google.com/store/apps/details?id=com.luckybirth.app',
   ),
   ProjectModel(
     title: 'EcoScan',

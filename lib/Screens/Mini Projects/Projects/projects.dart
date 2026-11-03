@@ -33,7 +33,9 @@ class Projects extends StatelessWidget {
                         child: ListTile(
                           contentPadding: const EdgeInsets.all(16),
                           title: Text(
-                            '[${index + 1}] ${projects[index].title}',
+                            '${projects[index].title} - ${[
+                              projects[index].status,
+                            ]}',
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.bold,
                               fontSize:
@@ -44,6 +46,7 @@ class Projects extends StatelessWidget {
                           ),
                           subtitle: Column(
                             children: [
+                              const SizedBox(height: 8),
                               Text(
                                 'Description',
                                 style: GoogleFonts.inter(
@@ -54,18 +57,7 @@ class Projects extends StatelessWidget {
                                       : 20,
                                 ),
                               ),
-                              const SizedBox(height: 4),
-                              Text(
-                                projects[index].status,
-                                style: GoogleFonts.inter(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: currentState.currentDevice ==
-                                          Devices.ios.iPad
-                                      ? 26
-                                      : 19,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
+                              const SizedBox(height: 8),
                               Text(
                                 projects[index].description,
                                 style: GoogleFonts.inter(

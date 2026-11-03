@@ -37,32 +37,32 @@ class PhoneHomeScreen extends StatelessWidget {
                             borderRadius: currentState.currentDevice ==
                                     Devices.ios.iPhone13ProMax
                                 ? 8
-                                : 24,
+                                : 16,
                             width:
                                 currentState.currentDevice == Devices.ios.iPad
                                     ? 120
                                     : currentState.currentDevice ==
                                             Devices.ios.iPhone13ProMax
                                         ? 60
-                                        : 75,
+                                        : 60,
                             height:
                                 currentState.currentDevice == Devices.ios.iPad
                                     ? 120
                                     : currentState.currentDevice ==
                                             Devices.ios.iPhone13ProMax
                                         ? 60
-                                        : 75,
+                                        : 60,
                             asset: apps[index].assetPath != null
                                 ? ButtonAsset(
                                     apps[index].assetPath!,
                                     width: currentState.currentDevice ==
                                             Devices.ios.iPad
                                         ? 80
-                                        : 50,
+                                        : 40,
                                     height: currentState.currentDevice ==
                                             Devices.ios.iPad
                                         ? 80
-                                        : 50,
+                                        : 40,
                                   )
                                 : null,
                             backgroundColor: apps[index].color,
@@ -132,7 +132,7 @@ class PhoneHomeScreen extends StatelessWidget {
                     'Made with Flutter ! ',
                     style: GoogleFonts.inter(
                       color: Colors.white,
-                      fontSize: 24,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -140,7 +140,7 @@ class PhoneHomeScreen extends StatelessWidget {
                   const Icon(
                     Icons.favorite,
                     color: Colors.red,
-                    size: 32,
+                    size: 24,
                   ),
                 ],
               ),

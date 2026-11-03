@@ -112,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                                                     const EdgeInsets.all(10),
                                                 child: AutoSizeText(
                                                   'Arbin Shrestha',
-                                                  style: GoogleFonts.exo(
+                                                  style: GoogleFonts.inter(
                                                     fontSize: 32,
                                                     color: Colors.white,
                                                     fontWeight: FontWeight.bold,
@@ -171,7 +171,7 @@ class HomeScreen extends StatelessWidget {
                                         Flexible(
                                           child: AutoSizeText(
                                             "Let's Connect",
-                                            style: GoogleFonts.exo(
+                                            style: GoogleFonts.inter(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w700,
                                               fontSize: 28 *
