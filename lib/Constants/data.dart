@@ -356,4 +356,4 @@ const String gmail =
 const String introduction =
     'Flutter Developer & Computer Engineer specializing in cross-platform mobile architecture, secure API integration, and system modernization. Demonstrated expertise in Riverpod, Provider, OAuth 2.0, Google Maps, and app localization. Skilled in leading mobile initiatives from technical design through Play Store/App Store deployment, ensuring reliable, high-performance user experiences.';
 const String resumeLink =
-    'https://drive.google.com/file/d/1AXdoeuqJ7pMQ_aJnO6qSnnDt-ATejLJk/view?usp=drivesdk';
+    'https://drive.google.com/file/d/1Bq45X-tzP2ZJ2w8MJyunQaJqon2ELEZY/view?usp=sharing';
