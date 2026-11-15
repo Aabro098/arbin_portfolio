@@ -15,7 +15,6 @@ import 'package:arbin_portfolio/Screens/Mini%20Projects/Projects/projects.dart';
 import 'package:arbin_portfolio/Screens/Mini%20Projects/Skills/skills.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 const double baseHeight = 790;
 const double baseWidth = 1440;
@@ -94,31 +93,31 @@ List<AppModel> apps = [
   AppModel(
     title: 'About',
     color: Colors.orange,
-    icon: Iconsax.user,
+    icon: Icons.person_outline,
     screen: const AboutScreen(),
   ),
   AppModel(
     title: 'Skills',
     color: Colors.green,
-    icon: Iconsax.code,
+    icon: Icons.code,
     screen: const Skills(),
   ),
   AppModel(
     title: 'Education',
     color: Colors.blue,
-    icon: Iconsax.building,
+    icon: Icons.school_outlined,
     screen: const Education(),
   ),
   AppModel(
     title: 'Experience',
     color: const Color(0xFF001F3F),
-    icon: Iconsax.briefcase,
+    icon: Icons.work_outline,
     screen: const ExperienceScreen(),
   ),
   AppModel(
     title: 'Projects',
     color: Colors.orangeAccent,
-    icon: Iconsax.activity,
+    icon: Icons.folder_open_outlined,
     screen: const Projects(),
   ),
   AppModel(
